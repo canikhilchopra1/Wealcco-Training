@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Intern Training &amp; Professional Knowledge Portal</title>
+<style>
+:root{--navy:#0d2438;--navy2:#123350;--navy3:#1b4266;--accent:#c9a227;--bg:#f4f6f9;--card:#fff;--line:#e3e8ef;
+--txt:#1c2733;--muted:#68788a;--ok:#1f9d63;--warn:#d98b12;--bad:#c73c3c;--info:#2b6cb0;
+--sh:0 1px 3px rgba(16,32,48,.07),0 8px 24px rgba(16,32,48,.06);--r:12px}
+body.dark{--navy:#0a1a28;--navy2:#0f2436;--bg:#101c26;--card:#16252f;--line:#25384a;--txt:#e7eef4;--muted:#9db0c0}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:"Segoe UI",Roboto,system-ui,Arial,sans-serif;background:var(--bg);color:var(--txt);font-size:15px;line-height:1.6}
+a{color:var(--info);text-decoration:none}a:hover{text-decoration:underline}
+.hidden{display:none!important}
+h1,h2,h3,h4{margin:0 0 .5rem;line-height:1.25;font-weight:650}h1{font-size:1.6rem}h2{font-size:1.25rem}h3{font-size:1.05rem}
+p{margin:0 0 .8rem}small{color:var(--muted)}
+input,select,textarea,button{font-family:inherit;font-size:14px}
+input,select,textarea{width:100%;padding:.6rem .7rem;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--txt)}
+textarea{min-height:90px;resize:vertical}
+label{display:block;font-size:12.5px;font-weight:650;letter-spacing:.02em;text-transform:uppercase;color:var(--muted);margin:.7rem 0 .25rem}
+.btn{display:inline-flex;align-items:center;gap:.4rem;justify-content:center;padding:.55rem 1rem;border-radius:8px;border:1px solid transparent;background:var(--navy2);color:#fff;cursor:pointer;font-weight:600}
+.btn:hover{filter:brightness(1.13)}.btn.gold{background:var(--accent);color:#2b2100}
+.btn.ghost{background:transparent;border-color:var(--line);color:var(--txt)}
+.btn.sm{padding:.32rem .6rem;font-size:12.5px}.btn.dngr{background:var(--bad)}.btn.ok{background:var(--ok)}
+.btn.wide{width:100%;margin-bottom:.5rem}
+.row{display:flex;gap:1rem;flex-wrap:wrap}.grid{display:grid;gap:1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);padding:1.1rem 1.2rem}
+.pill{display:inline-block;padding:.12rem .55rem;border-radius:99px;font-size:11.5px;font-weight:700;text-transform:uppercase}
+.pill.g{background:#e6f6ee;color:#137a4a}.pill.y{background:#fdf3e0;color:#96620a}.pill.r{background:#fdeaea;color:#a52c2c}
+.pill.b{background:#e9f1fb;color:#1d5793}.pill.n{background:#eef1f5;color:#5a6b7c}
+body.dark .pill{background:#20323f!important;color:var(--txt)!important}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:.6rem .65rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;color:var(--muted);background:rgba(0,0,0,.02)}
+#login{min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,var(--navy),#0a1c2c 55%,#14405f);padding:1.2rem}
+.authbox{width:min(960px,100%);display:grid;grid-template-columns:1.1fr 1fr;background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.authside{background:radial-gradient(120% 120% at 0 0,var(--navy3),var(--navy));color:#fff;padding:2.2rem}
+.authside h1{color:#fff;font-size:1.5rem}.authside ul{padding-left:1.1rem;color:#c9d8e6;font-size:13.5px}
+.authform{padding:2rem}
+.logo{display:flex;align-items:center;gap:.6rem;font-weight:800}
+.logomark{width:38px;height:38px;border-radius:9px;background:var(--accent);color:#2b2100;display:grid;place-items:center;font-weight:900}
+.demo{margin-top:1rem;font-size:12.5px;background:rgba(201,162,39,.1);border:1px dashed var(--accent);padding:.7rem;border-radius:8px}
+#topbar{position:fixed;top:0;left:0;right:0;height:58px;background:var(--navy);color:#fff;display:flex;align-items:center;gap:.8rem;padding:0 1rem;z-index:40}
+#topbar .logo{color:#fff}
+#sidebar{position:fixed;top:58px;bottom:0;left:0;width:252px;background:var(--navy2);overflow-y:auto;z-index:35;transition:.2s;padding-bottom:2rem}
+#sidebar .grp{padding:.9rem 1.1rem .3rem;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7d9cb5}
+#sidebar a{display:block;padding:.6rem 1.1rem;color:#cfe0ee;font-size:14px;border-left:3px solid transparent}
+#sidebar a:hover{background:rgba(255,255,255,.06);text-decoration:none}
+#sidebar a.on{background:rgba(201,162,39,.14);border-left-color:var(--accent);color:#fff;font-weight:650}
+main{margin:58px 0 0 252px;padding:1.4rem;max-width:1500px}
+.searchwrap{flex:1;max-width:400px}
+.searchwrap input{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);color:#fff}
+.searchwrap input::placeholder{color:#a9c1d4}
+.tbtn{background:rgba(255,255,255,.1);border:0;color:#fff;padding:.4rem .6rem;border-radius:8px;cursor:pointer}
+.hamb{display:none}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:.9rem 1rem;box-shadow:var(--sh);position:relative}
+.stat b{display:block;font-size:1.7rem;font-weight:750}.stat small{text-transform:uppercase;font-size:11px;font-weight:700}
+.stat i{position:absolute;right:.7rem;top:.6rem;font-size:1.4rem;font-style:normal;opacity:.35}
+.bar{height:9px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--navy3),var(--accent))}
+.subjcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem}
+.sc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column}
+.sc:hover{transform:translateY(-3px)}
+.sc .top{padding:1rem 1.1rem;color:#fff}.sc .bd{padding:1rem 1.1rem;flex:1;display:flex;flex-direction:column;gap:.5rem}
+.tp{display:flex;gap:.9rem;align-items:flex-start;padding:.85rem 1rem;border:1px solid var(--line);border-radius:10px;background:var(--card);margin-bottom:.6rem}
+.tp .num{width:30px;height:30px;flex:none;border-radius:8px;background:var(--navy2);color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
+.tp.done .num{background:var(--ok)}.tp.prog .num{background:var(--warn)}
+.callout{border-left:4px solid var(--info);background:#eef4fb;padding:.8rem 1rem;border-radius:0 10px 10px 0;margin:1rem 0}
+.callout b.ct{display:block;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.25rem}
+.callout.important{border-color:var(--bad);background:#fdefef}.callout.tip{border-color:var(--ok);background:#ecf8f1}
+.callout.caution{border-color:var(--warn);background:#fdf5e7}.callout.example{border-color:var(--navy3);background:#eef2f7}
+.callout.remember{border-color:#7c5cbf;background:#f2eefc}.callout.key{border-color:var(--accent);background:#fbf5e2}
+body.dark .callout{background:#1b2c39!important}
+.formula{font-family:Consolas,monospace;background:#0d2438;color:#ffe9a8;padding:.8rem 1rem;border-radius:10px;overflow-x:auto;margin:1rem 0}
+.content h2{margin:1.6rem 0 .6rem;padding-bottom:.35rem;border-bottom:2px solid var(--line)}
+.content h3{margin:1.2rem 0 .4rem;color:var(--navy3)}body.dark .content h3{color:var(--accent)}
+.content ul,.content ol{margin:.2rem 0 1rem;padding-left:1.4rem}.content li{margin-bottom:.35rem}
+.content table{margin:1rem 0;border:1px solid var(--line)}.content img{max-width:100%;border-radius:10px}
+.content code{background:rgba(0,0,0,.07);padding:.1rem .35rem;border-radius:4px;font-family:Consolas,monospace}
+.toc{position:sticky;top:74px}
+.toc a{display:block;padding:.3rem .5rem;border-radius:6px;font-size:13.5px;color:var(--muted)}
+.toc a:hover{background:rgba(0,0,0,.05);color:var(--txt);text-decoration:none}
+.crumb{font-size:13px;color:var(--muted);margin-bottom:.5rem}
+.blk{border:1px solid var(--line);border-radius:10px;padding:.7rem;margin-bottom:.7rem;background:rgba(0,0,0,.015)}
+.blk .hd{display:flex;gap:.4rem;align-items:center;margin-bottom:.4rem;flex-wrap:wrap}
+#toast{position:fixed;right:1rem;bottom:1rem;z-index:99;display:flex;flex-direction:column;gap:.5rem}
+.tst{background:var(--navy);color:#fff;padding:.7rem 1rem;border-radius:9px;border-left:4px solid var(--accent)}
+#modal{position:fixed;inset:0;background:rgba(8,18,28,.6);z-index:80;display:grid;place-items:center;padding:1rem}
+.mbox{background:var(--card);border-radius:14px;width:min(760px,100%);max-height:88vh;overflow:auto;padding:1.3rem}
+.qopt{display:flex;gap:.6rem;align-items:flex-start;padding:.6rem .8rem;border:1px solid var(--line);border-radius:9px;margin-bottom:.5rem;cursor:pointer}
+.qopt input{width:auto;margin-top:.25rem}
+.cert{background:#fffdf7;border:14px double var(--navy);padding:2.4rem;text-align:center;color:#1c2733;max-width:900px;margin:auto}
+.cert h1{font-size:2.1rem;color:var(--navy)}
+.cert .nm{font-size:1.9rem;font-weight:800;color:var(--navy3);border-bottom:2px dotted #b9c6d3;display:inline-block;padding:0 1.6rem .2rem;margin:.6rem 0}
+#errbar{position:fixed;top:0;left:0;right:0;background:#c73c3c;color:#fff;padding:.6rem 1rem;font-size:13px;z-index:200;display:none}
+#warnbar{background:#d98b12;color:#2b2100;padding:.5rem 1rem;font-size:13px;text-align:center;display:none}
+@media(max-width:980px){.authbox{grid-template-columns:1fr}.authside{display:none}}
+@media(max-width:900px){#sidebar{transform:translateX(-100%)}#sidebar.open{transform:none}main{margin-left:0;padding:1rem}.hamb{display:inline-block}}
+@media print{#topbar,#sidebar,.noprint,#warnbar{display:none!important}main{margin:0;padding:0}body{background:#fff}}
+</style>
+</head>
+<body>
+<div id="errbar"></div>
+
+<!-- ============ LOGIN ============ -->
+<div id="login">
+  <div class="authbox">
+    <div class="authside">
+      <div class="logo"><span class="logomark">IT</span><span>TRAINING PORTAL</span></div>
+      <h1 style="margin-top:1.6rem">Professional Knowledge &amp; Training Management System</h1>
+      <p style="color:#bdd0e0;font-size:14px">Structured internal training for interns and articled assistants across Accounting, Audit, Income Tax, GST, Corporate Law, Excel, Tally and Finance.</p>
+      <ul><li>Curated subject and topic curriculum</li><li>Reading material, files, videos and references</li><li>Quizzes with instant evaluation and explanations</li><li>Automatic progress and performance tracking</li><li>Admin content management without any coding</li></ul>
+      <p style="margin-top:1.6rem;font-size:12px;color:#8fa9bf">Confidential. For internal use of the firm only.</p>
+    </div>
+    <div class="authform">
+      <div class="logo" style="margin-bottom:1.2rem"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCADdAToDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD7C20mDUirtpajmNbjVH+9S/8AfVLRQSJjd/epuP8Aep9FAETLRg1IwoU0/slXGUUNRQAUUKKNpoAKT8aVhRQA5f8AgVKo/wB6iOlp3JEo/wC+qXNFSAn/AH1R/wB9UtDUAFFFFAB/u0c/7VKtGauICf8AfVH/AH1TqKoBv/fVH/fVOooAb/vU6m0VEtwDNH3actFNANVt1OooqgCiiigAooooAKKKKAG0UkdLWXKAUUUVIBRRRQAklRmpJKjwa0RURaKXHy0YNIB0fy/epaZinL92myQamVItDLuoQXIsGjBqVc/xU7FMfMQ09fu0SdqVh81JiBadQtFNAFFNyq06mAU1l3UuaM0wEVqdTWoqLgDUFqFprMqLlqI7kuUY6sclH8VZuk61pmp3Vxb2dzHPJbsFl2/wmtPdVsmFSM9Yi0UUUGgUUUUAH8NFOptAgop+KTbUiuFFNooGNYkfdoX7tOptJjBaXNC0jLupx2AXNJQq7aKlgFFFFIAooooAKKKKACiiipAKKKKACnVFJUtaoAopuVWnVQDWWjcKMhqguJoYE3SOqqv95qnlk2Z1KkaavIn+9RXGa38SPDOkkxyX0c0i/wDLOH5q6y1mWe3WZVZdwDVTpyW5hSxlKtK0GT0ZoU1z3jzW7rQtFe6s9PmvZP7sf8PuamEebQ0r1VRg5sueIte07Q7B7vUriOGFa8E8ffFi81yR7PSWktLP7u9fvvXH+Lte1bxDfGbVLmSRl+7F/DH9BWA3ysdq/LXs0MHFRuz80zfiSrWk6VPRHvH7M7s1nq+4/wDLdP5V7P8AxGvEP2Xyfsesf9fEX8q9wX7xrzsUrTPteHp8+DjIWinfxUVznt3G0LTuKOKAuLRRRQIKKKKACiiigBlNp1NqX3LHUUUVSAa1FFFT9oAaihqKPtAJJ2p+aKZJ2qhCtRz/AHa534heIZfCvhO816Gxa9W0HmPErYOO9eLyftKW38Ph64/4FItduFy+viv4KuctfGU6Gkz6KU/3qRj/AHa+cP8AhpeP7v8Awjs3/fxa7j4V/GbRfG2rf2PJaSWF8wLRI3Ik9cGta+U4uhHnnHQxo5nQrStFnq6mlo/3aMrXlcp6IySpM02TtRIN1NALtVqP4ttU9X1Cz0rT3vb6eOKGP5mkboteW+J/jPptpI8OlWsl2399uEreFKU/hPNxuZ0MH/FZ63IwVc7a+bfizr2qyeNdR08X9wtrEQFiX7vRa7n4QeNNZ8Ta3qn9pSx+SkQaKJei815h8W8j4j6o3+2P/QFrrw9PlnaR8pxFmPt8GqlFnPMjOvmN97/er7B0M506H/cFfHqSrt2t6V9gaN8umQ/7gq8faxycFTnOU+Yu1n65eWtnpktzeSKsMaFnZumKuSEKpb9K8B+Pvjn7VeN4a06X91Ed106t94/3K48PS55n2Gb46GFw7bPPPF+qprHiC61CGCOGGR/kVVxx2/GsWNjIpZVbav3mqeGGW5ZLe3TdJIRGqryzV714I8O6L4e0+28O6nFHd6lq2XnTbuwMfyFezUq+xifmGEwMswquWxT/AGZVxZ6v/wBd4v8A0GvbcVy/gvwhpvheS8bT/MWG7cSeU33UI9K6nvXiV588rn6llOEeFw6gxtFFFQeqFFFFAhy9KWkXpS1JIUUUUAFFFFAEVFH3qKhosctFC0VaAKKKKoAooooAKKKTNAFLWLOHUNLubG4VWjnjMTK38QavgHxppNz4c8VX+hzLta2nKL/tDsa/Qyvlb9r/AMK/ZNasfFFvH+7ux9muP9lx9019DwzjfYYnkl9o8LO8P7Slz9jwPNbXhHWLnQfElhrFvJtktp45R/tc8j/vmsJTS7/l+av0jE041qLg+p8fTnKnK8T9FdB1C21bRrTUbORZLeeMSoy+hFaBFeFfsleLP7U8KT+H7iffc6a/7r18s17pX47jMPLD15U2foODr+0pKQ2RlUfM+2snVPEejaWu6+v7eDb2ZhmvE/jX4v16x8X3Gl2uozQW6Rxsqrx1FeXX1/c3chkmnkkkb7zNI3zVrTwblHmPmsdxN7Gv7GCPpP4yX0V38Lr26t33RuiOG/vDdXzKr7vmr6A8ajd8ClP/AE4w/wBK+eGeuzBUz5riapKtVg32PZP2cP8AkL6r/wBe8dcr8Ycf8LB1L6j/ANBWui/Zil83XNWX+7bx1x/xpnC/EvVY/wC64/8AQVogv35eIpy/sqJzPnbf4q+0dF2tpNszf88x/Kvhu4lZl2xqzM3yrt/ir638VeLrPwp4Tiurht07QhYId3zSNipx0OaSjE6+FqkcLTnORQ+NHjpPDekNa2bq2pToVjX+6PWvmCZ3lkM0zs0kh3O7Vva9qV1rWpSapqEvmTS/eb+Ffp/dro/h74OhnU+J9eHkaRbfvFWT/lqa1p0Y0Ia7nm43HVM0ru3wo0fhtpEHhzRn8a6+u1du2wgb7zn+E/jXf/Bu0utcvLvxnqi7pLk7bX0WP2ryrXNSvviB4wtNLtY2is/MEVvF2RO7Yr6c8O6bbaRpcFhbKqxQoEVa4sVOy1PochoRqT9xe6jTBX7tLuFNorgsfb2CiiimMVadTVp1SSwooooAKKKKAGNRSnpRigZHH3p9FFUUFFFFABRRRQAUUUyTtQA+mSdqfRQAVxHxo8MR+Lfh9qGl7d0yp5sH+y68iu1pjfMNtOjKVOopx6GNan7Sm4n5tSh4pnhkXa0ZKsv9096j316H+0f4Xbwv8TLzyY9tnf8A+lQfj94V5rmv1jA4uNehGZ8HiKHs5tHffA7xWfCnxE068aTbazn7NcL7N3/Cvu+FkmhEi7WVgGDL3r81FLfejbbIp+Wvun9nvxSvir4cWNxI266th9nuP95a+S4nwlpqtE9vKK9vcPGP2h5NnxOvl3bf3cX/AKAtecSXexd26ux/aYu/K+Ll/Hn7scP/AKAtebNPuWufDwvQTPksdh/9tcvM+rPHE239ntZm/wCfG2/mtfM/2xd33q+i/iRlf2Zwy/w6fb18ofa2/ib71Z4BX5jtzfCe0cH5H0N+yjMJfEut/wDXtHXE/HA3Evxk1W1t0aSSSSNVRfvMcL0rqv2OPPbXdcumhZYWtY1WX3312/je68I+EPE+peII411HxFdndHG3PlcYrmlNxrvlO50IRwKjNnJ+EvC2neAdMTxT4vVZNSdP9EsOu1q4Xxb4k1LxFrMmo6lIzNn93F/BGPQCrOqahrHijXDNcNNe3Up/dxx87fYLXcaH4J0rw7aDW/GMsZZRujtOpP1q72fM9z56rUnV/dw0gZfw/wDCX2q1/t7xEy2mjxfMqtwZab458WPrrCzs1+zaTB8sMS/LuHvWf4z8V3/iK6EO37Np8Xyw269AKoeG9LudW1y00u1XdJK+3/dHrVW+1I4pVI3WHw/U9X/Z58NNun8Rzxbd2YLf8/mevckXk1meGtLttH0e20+2XbDbRhF/CtXdXjV588j9QyjBLCYdQQg+9TqRelLWR6gUUUUAFFFFABRRRQAGkXpS0UAIRmkyadRQAyiiiqLCiiigAooooAKKKKACiiigApiilYmnUAeEftfeE/7W8DR69Cm640l9z/7UbcNXx83y/L92v0o17TrbVtHu9NvEV7e5haJ1b+IMMV+c/jfRrnwz4u1PQLpW8yyuZItzfxD+E/ivzV9fw3jVZ0pHzebYb3udGepr2z9kzxmui+NpPD90+211YYjXssgrwtXqzpt/c6bqVrqVnK0dxbSCWJ1b7pU5/wDZa9nMaccRQcGeThpOnO56x+1HK4+Mmq/9cLb/ANF15pFef7XyrX0v4j+F6/GS50jxzp+rRWVnfadEtwqrl943A1taH8E/hx4T2TahBea1eL/z0Vn3H/cFfJ08ZGlT9mdk8A6s/avY1fFGlX+vfs7Wljpds1zdXNhbqkX5V554R+BGm6Parq3xB1aFYU+ZrdWwv0LV7HJqXiue1Sy8OeHY9Nt412pLeNt2j2QVz158P7jUGN94y8TSzqvzMit5aL7Zrgp1ZxT5TfF8ulkcT4o+JMdnZnw/4B06Oys1G1ZVjwW+gqj4Q+FXirxFML7VmayhkO6R7j77V2f/AAkPw38F5XR7GG+vF7xrvb/vs12vw28d23inSZ5pYo7a4gf507Y7Grk5JaI8qnGhXqWrT+RzmvW2gfC7w5u0+FZNRl+SN5PmdjXkWt6vqGtXJuL+6kkbPy7m+Vf+A1e+KviJ/EXi64aORms4P3UC/wAPH8VczGxZfmauzD0+sj5LOsYp1PZ0dIoeyfxV7T+z14Y2xT+ILgfNIxit/wDZXua8n8Nabc69rlrpduvzTvtZl/hXua+tPDumwaVpcFlbrtjiTaq1jjq3LHlR63CeW+2q+2mtjRooaivJP1FDl6UtIvSlqRBRRRQAUUUUAFI3SlooARulC9KWkXpQAN0o20tFADKKKKosKKKKACo23N/DUlFABRRRQAUUUUAFFFFADRXyL+214T+x+INO8YW6bYb5fst1/syJyhr68rhPjp4SHjT4baroyqrXXl+da/7MycrXVgq/sK6mcmMpe0gfnlu5+b71ODUyRWSR1kVlZTtZW/hNMZ/lr71VIzifKSj7x7Z8GfjpP8O/C0mg3GltqMSzmW3bzMbVaunvP2sb9s/Y/CsK/wC001fNTHctRSN/e+7/ABV41fAUOZzkd1LEVFHlPojQ/jb8UPH/AIotPDuhfY7JrlvvQx7tqdyTWV4w1LxJLr13Y65qN1JcQSGN1aQ/yr139kb4bDQPC/8AwlOqQBdS1NAyZ6xR0z9pXwasV5B4ptYvlP7q8/8AZTXjOrS9tywRy5th6zw3tEeJ277f96t/w7rOoaU1z9huGjWeAxP/ALQrCQdPmq/EAF27q7rRZ+d1K0oSuh7Gl3hajk/2av8AhjTLnXPElppduGZpZArMv8I/iP8A3zRKXLEyo0ZV6qj3PYv2dvDmI5/EE0W1pP3Vv/u9zXuCDiszw7pttpOlQWNqm2OFAi1ptXz9epzyufseUYGOFw6gh38VLRRWR6oUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAyimqu2kj71RY+iiigAooooAKTNGaWgBM0tFFABRRRQAU1huUr/epGfbT81JLPgL9pvwl/wiXxT1BYYttjqH+mW/4/fFeVsa/Q/wCNXwy0f4j6GljeM1teQfNb3C/ejr5M8Sfs7fEnTLwx2unw6jDn5ZYWr6XBZlHkUZng4jByU7xPJY1yvzD7tekfs8eAZPHvj63hniZtLsGFxfN/CwX7qVv+Ev2cPiDqVwi6hBb6Xb/xSzNuZa+tPhV8PtH+Hvh1dL0uNnkb57i4b78r1OOzKHJywKwuDk5XkdfawpBbpHGiqqDaqr0FZvizSLbXNEu9LulDR3MRRq11PWmyLur56MveuetUoxqU3BnwzqGm3eleILvS7xP31pIUf/a21Pwq19HfFH4XW3ia4/tawkW21LaFfcvyy/WvJtS+FvjKOTy49M8zn7ysu2vYoYiDjqfl+a5FXhX9xaHHLgqa9w/Z28KeVFceI7pPnm/dW/8AspWH4H+Deqy3Udx4hkWG3VtzQK24vXv+m2cGn2sdrbosccY2qq/wisMViouPLE9bh3IZ06ntqyLVFObpTa80/QEKtOpq06kJhRRRQAUUUUAFFFFABRRRQAUUUUAFFFFADKKKKosKKKKACs3XNUttF0W71a83fZ7SMyybVy21etaVVdQtob6xms5lWSGdDE6t/ECtL1Jex5Mv7Rfwze4SFdSuFZiPvQGvXY33KGX5lxX5ofEjw/c+GvGmq6DN8rWlwUVvbPyn/vlq+8/2f/Eg8VfCTQNVY7rj7KLe4/2ZIvkau7E4aNOEZROPD4hzm4yPQMhV3bvlWvINU/aH+HOn6hPZzahMzQzGJtsZPzCut+M3iFPCnw21rWGkVWhtSsX++3Ar845pXlZ5JG3NITI395i1aYHAqvFyYsTivZOyP1B0W/tNX0m11Sxl8+3u4Unif+8jDIq/Xin7H3ika98I7WxmbdcaRO1m/wDudUNeseIdTg0rQ7zUrhlWO2gklfd/siuCdNqfIdEKt4cx534w+OXgLwz4gudF1K+mW6tjtlVY8hTXaeBfFWl+L/Dtvr2jtM1nOSsTSLt3Yr85taub3xZ4uuLyNWkvNUvNyL/eMh+QV+jHw+8P2/hXwXpGg23yx2VrHF/vHHzH8WrrxeHjQSMcPiHUbOix7UjAMOlZ2oa9oumNt1LV7G0b+7NOqH9TT9M1vR9T/wCQfqdne/8AXGZX/lXDaSOrniX1+VdtOb7tMXH/ALNT+FXdmkPYatOrL1DXdG0xtuparY2jf3Zp1Q/qaNO8Q6HqDbNP1jT7uQ/ww3KOf0NPlkT7SJqLXnXxk+J+j/Da3sptUsri6+1sVRYfavQWk6/3a+Xv285FFn4b/wCu0tb4Wlz1FGRjiHaHMes/BX4taR8TW1JdLsbq0+wbN/ne9emZr5O/YJ+/4rb3tv5V9X7qMVTjCq4xDD1OeFx+aOKo3mpWVmm64uIYV/vSOFqK01vTLxvLt7+2kb0jlDVhySD61S5rcxpikY0isrfdo3BRuY07GvPHcctGKzLrW9KtH8ua/tY2/uySqKls9Ssr5N1rdQyr6xsDS5JGX1mlzWuX6RjSf7tMklVB8xWkaynGOrJFNL+FY8niHRkk2tqdmrD+Hzlq9b3cFxGGhlWRT/ErZpunIyjiaUpWTLdFN706kbhRRRQAUUUUAMoooqiwpM0tFADcrQ1G35qdWf2hHxf+274aGmeNtP8AEkcX7nU4Ns3/AF0jrqP2EvFHmWWu+FJnH7mQXluv+yeHr0X9rbwz/wAJD8IL+4jjDXOlkXkX0X79fJ37OHiJ/C/xd0a6aTba3cn2OdW+7sfivbp3r4Xk7HlTXsq/Me5/t1+Kvs2h6P4VhlZftsn2qf8A3Er5u0PwdqWo/DvWfGEKs1vpt1FAy/3t33j+FdP+1F4hfxL8XNVZX3W9gRZxfhX1H8JfhtbW/wCz4PCt9Ftk1Wxke5b+LfIvBrWFSWCpJdzNr28meHfsQeJG074hX3h+aX9zqtruj/66RV7l+114h/sP4SXdrDLtuNUkFrHXx14bvrzwT8QrS+ZWjvNJ1Dy5Vb1jfDivUf2y/GMWt+KNI0e1k3WttYi5/wCBTLlaKmH58RGQQr8tNwMT9k7wuPEPxasrhov9F0lDdS/7w4Svaf2pPjTd+ECvhDwpOq6xNFuurnr9lU/+zmo/2IvDbWPgG98RTJtm1Kfan/XNK+Y/inqc+tfEbxDqdw7M0uozbf8AdUsAKfJ9ZxL5tok83saXqafhHwX8QviTcT6hY211f7mLPdXExC5/H5ah8SeHfiB8MdWt7q6W80mbP7q6jY7Gr1/wT+0XofhDwlpuhWPhSRY7SAIzLIo3EVk/Fr496J498FXehTeF2VpMNBK0inymFVeftOWUfdFpyc19T2r9mP4sP8QtDn03Viq65poHm/3ZU6B66P8AaHbxZF8ML678H3slrfW+JW8tfnaP+ICvlH9kC/ltfjtpVus/y3sFzBKv8Mg8tpFr7J+JXjzQPAuh/wBpa5P97KxQLy8p9AK87EUuSvaCO+nV56XvHw/o/wAM/iX4sU6kukapcrJ83m3TY8z86yfFHhjxh4CvoG1SzvtLaT7k6sQrH2xXt+sftTXPn7dH8LwrCv3RM1cT8V/jl/wnfgu48P6t4cWC48yOWCdf4Spr0KM6vNyyicNRK3NFnr37JXxa1Lxa114T8Sz+fqFpH5tvcd5kBrB/b0G2Hwz/AL8teafscyOvxy01Vb71rc/+i69R/bvT/RfDf+zJLWKpRhjEom3tOehqVv2COD4qPvb/AMjXsnxl8eN4Z09bXT9ralP/AKsN/Cnc141+wj/zNi/7VtTPijqpvfHurNM3+pnMCL7JxWdSnzYiXMeNm2OnhcKuTqZNmfEnivVm+a81G4P3t3NXda8NeJdAjF1dWd1bL/z1X7q/lXv/AMH9As9K8IWTRxR+dPEJpX/vbua7K8sLS6gaG4ijkjcYZWXOaxniYxly2OTC5DUr0lVlPU80+A+seKtQ0WVteRpLVQPstxJw8lcv8bPiXfLeS6DoNx5Cx/LPOv3voK9h8QNHonha9uLWJVW0tZJEVf8AZXNfI+gwvrHiS0tZpNzXd0Ed29W606EYzbmy82r18LThh4PVmh4f8PeJfEMZuLGzurtf+erMdv61JDb+KvCutRxxpfWV0x2oq5/eH0H96vq3RtOtNPsYra2iVY412qqrU15pdhczRzTWsbyRHcjMudpqZYuPw2NKWQVORT59Tn/DusajaeDE1PxPHHaXEcO+Xa3b3968C8ffEPWfFGoPDayyW2m7tqRK2Gk+tetftCX0lr4KFvCWUXdxHAzL6da8y+A2h2eq+MJZrqNWWyh81Q38RY1pQUVFzaObNMRVnXhhIMxIfBXiy8sxeQ6TdMrJuVmXaW/D71VvDPi3xP4S1Y+XPMqxH97azMdre3P3a+ulgiChVRdteI/tG+HrOKKz1yFFWZn8iVum7d0NFOvGo+Vozx2VVcDS+sQnsep+BPEtn4o0KLULY/e+WRO6P3FdJXgv7M1/L/aGp6bu/c7BOq/3TnBr3hfvVw14ckz6jJ8XLFYZTkPXpS0n8VLWR6oUUUUAMoooqiwooooAKKKdUiKOpWsF9Yz2N1HuhnRonDfxBhzX5oeL9HuPCXjfU9ClLLPpt0YFbvhfuPX6eNXyZ+1V8HfE3iH4gReIvCektere2oW8Vf4ZEavRyzERoztLY8/GUueOh4V8KNEufGnxQ0nS5Gadrm7E9yzc7lU5fNfpDBEkUKRxrtVAFCr6V8y/sm/CXxD4W8Vajr3ibSjZMkHlWea+n9tLMsQqtT3SsJR5I6nwR+114afw98Yb26hTbZ6xGl5F/v8AR68pZ73XNSt4ZJZJrqcx20bNy38KAfgtfa/7W/w41Txv4b0u60GzFzqen3BUJnG6FxzXkHwI+BnjG0+Jekal4k0M2mn2j/aXZmB3MK78LjIxoXkctTDy9qfV3w58Ox+GvBGk6LGm1ba2jR198c18E/HLw1c+F/ip4g0+ZGWNrqS7gb+9HKWIxX6Ox/d215f8cfhNpXxI0tZNy2es2yn7LeD/ANAevPw2L9nVcpdTqrYfnhZHn/wPsPhH408LWi3GkaSutW0YivIJMBt4H3xn7wNdD428O/BDwhpL32saZo6qo3LEvzSSewUV82eJPgf8TPD186w6LcXax/dnsWyGFL4f+CfxO8Q3iLNot1bf9NbxtqrXZKMXLm59Dmg5JcvIfWPwp8OfDDUIbLxd4P0yyVlB8qWPh4iRhlNfO/7aWp3c/wAVINPd2W1tNOiaJf8Afavo/wCBXwutfhroUtv9qa9vrxg11P0T5egArlf2mvg9N8QLe21jQ3VdYtF2lG4E6Vy4evCGIu2b16UnT90wP2RPCnhG88A/2tNZ2d/qkk8i3PmKG8rFTftd23grSPhtd2q2unwaxcvEtmsajzVw6ljXgmm/Df4xeHtQePTdH1q0ZvvNathW/KuxX9n/AOIGreFNS13xBLNPrQSP7HZtNvdvnUPkn/ZrqfL7fnc9DCPN7Llsc/8AsfJ/xfTTP+uFz/6Lr1L9vF1Wx8Of78tZv7OPwm8aeEfivYa1rekC2sooJozLu9Urs/2vvAnifxnbaAnh3Tvtv2dpfPWoqVofWlKOxVOjL2Tizjf2CRvm8Wf9u9WPjLoMmk+Pr6Rkb7Pev9pRv9779dF+x/4B8U+CZvETeI9NNgt55HkD1r2Tx94R0/xbpZtbpdsi/NFKv3ozWM68VXbPPzPLZYrC2h8SOJ+C/jnT5NDt9H1C5SG8tl8tTJ8ocV3PiLxfomh2DXV1fR4x8qKwLP8AQV88+JfhV4v066f7Pa/bVz8stvVbR/h140vrhFk0q4j/ANuZsLRKjSk+a55NDMMfQpex5NT6Hs9Z0rxp4WuvsM6yQ3MLRSjum5cYNfLU1te6B4g3TDbdWFxtZenKmvpT4V+A4fCVpJJNM099cgea/QL7CqHxT+GcHiRv7S01o7bUlH3mX5ZfrWdKrGEuU6MywGJxdCNb7aNrwT450PX9JiuEvoY5dg8yJpAGU1H4j+JPhvRb2C2mvFmaR9r+W24RD1NfP2ofDnxpZ3Dr/ZF1Jz96Nt+78a0vDHwq8WapeKt7A1lC335ZPvAU5UKXxXIo5pj+VUuTU9Y+M9mPEPw/a9011m8ki4jK87hXjPwt8VJ4X8WC6mG61nHlT7f4Rnr+FfSnhnw3Z6H4ej0e3DNbxrtPmc7s9a8n+IfwduftkmoeG9rK53Nas238jVUKsNYSDM8vxDnDFU17yPXbHxJo11YrcwajbyRsM7vMWvBvjv4yttdvotJ02XzLW2bzJZV+6z9P0rm5PA3jSJjCui3ldX4K+Duq39xHN4g/0S1XloFbJaqhClSfNc5sTicdmMPYclje/Zm0eeK0v9amQqs7CKL6Dk17fgbqpaPp1rpllHaWkSxQxjaqrV5RiuGtPnlc+syzB/VKCpiUUo5NOxWdz0riL0paKKQhlFFKKYxV6UtFFIQUUUUAFM+9TmGaNtAAvSlpF6UtADXUMKTG3+Gn0UANH+1St0opP9qhAJgU7iloxQAlNYU6igY3Yv8Adp3HtQORyKWgQzYlGxf7tObpQvSlqA3G37tLmlpMUxjSqNQqD+7T6Koz5IhSf71LupaksjZF/u0BVH3Vp2KUCncjkgFJ17UrdKF6Uixu1PSlAXtQVoFMXJEVVxS0UUhhRRRQAUUUUANH3qdTVp1AMRulNp56UxqBoFp9MWnKKBC0GiigBF6UtFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFBNANABRTR96nUAFFFFABRRRQAUUUUAFFFFABRRRQB//2Q==" alt="Wealcco" style="height:72px;display:block"><span id="loginMark" class="hidden"></span><span id="loginFirm" class="hidden"></span></div>
+      <h2>Sign in</h2>
+      <label>Email address</label><input type="text" id="lEmail" placeholder="name@firm.com" autocomplete="off">
+      <label>Password</label><input type="password" id="lPass" placeholder="Password" autocomplete="off" onkeydown="if(event.key==='Enter')tryLogin()">
+      <button class="btn gold wide" style="margin-top:1rem" onclick="tryLogin()">Sign In</button>
+      <div id="lErr" style="color:var(--bad);font-size:13px;min-height:18px"></div>
+      <div class="demo">
+        <b>ONE-CLICK SIGN IN (no typing required)</b>
+        <button class="btn wide" style="margin-top:.5rem" onclick="quick('admin@firm.com')">Sign in as Administrator</button>
+        <button class="btn ghost wide" onclick="quick('rahul@firm.com')">Sign in as Rahul (Intern)</button>
+        <button class="btn ghost wide" onclick="quick('priya@firm.com')">Sign in as Priya (Intern)</button>
+        <button class="btn ghost wide" onclick="quick('arjun@firm.com')">Sign in as Arjun (Intern)</button>
+        <small>Admin: admin@firm.com / Admin@123 &nbsp;|&nbsp; Interns: Intern@123</small>
+        <div style="margin-top:.5rem"><a href="javascript:diag()">Diagnostics</a> &nbsp;|&nbsp; <a href="javascript:hardReset()">Repair / Reset portal</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ APP ============ -->
+<div id="app" class="hidden">
+  <header id="topbar">
+    <button class="tbtn hamb" onclick="document.getElementById('sidebar').classList.toggle('open')">&#9776;</button>
+    <div class="logo"><img src="data:image/jpeg;base64,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" alt="Wealcco" style="height:42px;background:#fff;border-radius:8px;padding:2px 8px"><span id="tbMark" class="hidden"></span><span id="tbFirm" style="font-size:14px"></span></div>
+    <div class="searchwrap"><input id="gSearch" placeholder="Search topics, subjects, resources..." onkeydown="if(event.key==='Enter')doSearch()"></div>
+    <div style="flex:1"></div>
+    <button class="tbtn" onclick="go('#/announcements')">&#128276; <span id="annCount"></span></button>
+    <button class="tbtn" onclick="toggleDark()">&#9789;</button>
+    <span id="tbUser" style="font-size:13px"></span>
+    <button class="tbtn" onclick="logout()">Logout</button>
+  </header>
+  <aside id="sidebar"></aside>
+  <main><div id="warnbar"></div><div id="view"></div></main>
+</div>
+
+<div id="toast"></div>
+<div id="modal" class="hidden"></div>
+
+<script>
+/* ============ STORAGE-SAFE ENGINE ============ */
+var DBKEY='itp_db_v2',SESKEY='itp_ses_v2',DB=null,USER=null,EDIT=null,TIMER=null,STORAGE_OK=true;
+var ST=(function(){try{localStorage.setItem('_t','1');localStorage.removeItem('_t');return localStorage;}
+catch(e){STORAGE_OK=false;var m={};return{getItem:function(k){return k in m?m[k]:null},
+setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+window.onerror=function(m,s,l){var b=document.getElementById('errbar');
+b.style.display='block';b.innerHTML='Script message: '+m+' (line '+l+'). Please tell your developer this message.';};
+function save(){try{ST.setItem(DBKEY,JSON.stringify(DB));return true;}catch(e){STORAGE_OK=false;showWarn();return false;}}
+function showWarn(){var w=document.getElementById('warnbar');if(!w)return;w.style.display='block';
+w.innerHTML='<b>Temporary mode:</b> this browser is not allowing the portal to store data on this computer, so your changes will be lost when you close the tab. Fix: enable cookies/site data for local files, or place this file on a web host. Everything else works normally.';}
+
+/* ============ HELPERS ============ */
+function $(s){return document.querySelector(s)}
+function $$(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
+function uid(p){return (p||'id')+'-'+Math.random().toString(36).slice(2,7)+Date.now().toString(36).slice(-4)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function today(){return new Date().toISOString().slice(0,10)}
+function now(){return new Date().toISOString()}
+function fdate(d){return d?new Date(d).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}):'-'}
+function fdt(d){return d?new Date(d).toLocaleString('en-GB',{day:'2-digit',month:'short',year:'2-digit',hour:'2-digit',minute:'2-digit'}):'-'}
+function pct(a,b){return b?Math.round(a*100/b):0}
+function toast(m){var t=document.createElement('div');t.className='tst';t.innerHTML=m;$('#toast').appendChild(t);setTimeout(function(){t.remove()},3200)}
+function md(s){return esc(s).replace(/\*\*([^\*]+)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code>$1</code>')
+.replace(/\[([^\]]+)\]\(([^\)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>').replace(/\n/g,'<br>')}
+function go(h){location.hash=h}
+function modal(h){$('#modal').innerHTML='<div class="mbox">'+h+'</div>';$('#modal').classList.remove('hidden')}
+function closeModal(){$('#modal').classList.add('hidden');$('#modal').innerHTML=''}
+function toggleDark(){document.body.classList.toggle('dark');try{ST.setItem('itp_dark',document.body.classList.contains('dark')?'1':'')}catch(e){}}
+
+function csvOut(rows,name){var s=rows.map(function(r){return r.map(function(c){return '"'+String(c==null?'':c).replace(/"/g,'""')+'"'}).join(',')}).join('\n');
+var a=document.createElement('a');a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(s);a.download=name;a.click()}
+function bar(p){return '<div class="bar"><i style="width:'+p+'%"></i></div>'}
+function donut(p,size,label){var r=(size/2)-8,c=2*Math.PI*r;
+return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 '+size+' '+size+'" style="transform:rotate(-90deg)">'
++'<circle cx="'+size/2+'" cy="'+size/2+'" r="'+r+'" fill="none" stroke="var(--line)" stroke-width="10"/>'
++'<circle cx="'+size/2+'" cy="'+size/2+'" r="'+r+'" fill="none" stroke="var(--accent)" stroke-width="10" stroke-linecap="round" stroke-dasharray="'+((c*p/100)+'+'+c)+'"/>'
++'<text x="'+size/2+'" y="'+(size/2+6)+'" text-anchor="middle" transform="rotate(90 '+size/2+' '+size/2+')" font-size="'+(size/4.6)+'" font-weight="700" fill="currentColor">'+p+'%</text></svg>'
++(label?'<div style="text-align:center"><small>'+label+'</small></div>':'')}
+function stat(l,v,i,c){return '<div class="stat"><i>'+i+'</i><small style="color:'+(c||'var(--muted)')+'">'+l+'</small><b>'+v+'</b></div>'}
+function diffPill(d){return '<span class="pill '+(d==='Beginner'?'g':d==='Intermediate'?'y':'r')+'">'+d+'</span>'}
+
+/* ============ CURRICULUM ============ */
+var B={h:function(t){return{type:'heading',content:t}},sh:function(t){return{type:'subheading',content:t}},
+p:function(t){return{type:'paragraph',content:t}},ul:function(a){return{type:'bullets',content:a.join('\n')}},
+ol:function(a){return{type:'numbers',content:a.join('\n')}},tb:function(a){return{type:'table',content:a.join('\n')}},
+co:function(v,t,c){return{type:'callout',variant:v,title:t,content:c}},fo:function(t){return{type:'formula',content:t}}};
+
+var CURRICULUM=[
+{code:'ACC',title:'Accounting',icon:'\u{1F4DA}',color:'#12684f',desc:'Foundation and applied accounting - standards, statements, entries, reconciliations and finalisation of books as practised in the firm.',
+topics:[['Accounting Standards','Framework, applicability and structure of AS under the Companies (Accounting Standards) Rules.','Beginner',35],
+['Ind AS','Indian Accounting Standards - applicability, key differences from AS and transition.','Advanced',45],
+['Financial Statements','Components, Schedule III format and presentation requirements.','Beginner',35],
+['Journal Entries','Double entry logic, rules of debit and credit, compound entries.','Beginner',30],
+['Ledger & Trial Balance','Posting, balancing, extraction and error detection.','Beginner',30],
+['Bank Reconciliation','Preparing BRS, timing differences and stale entries.','Beginner',30],
+['Depreciation','Methods, useful life under Schedule II, component accounting, disposal.','Intermediate',35],
+['Revenue Recognition','AS 9 / Ind AS 115 principles, five-step model, practical cases.','Intermediate',40],
+['Inventory Accounting','Lower of cost or NRV, cost formulas, cut-off procedures.','Intermediate',35],
+['Provisions & Contingencies','Recognition tests, measurement and disclosure.','Advanced',35],
+['Related Party Transactions','Identification, AS 18 disclosure and Section 188 interface.','Advanced',35],
+['Cash Flow Statements','Indirect method preparation and classification of activities.','Intermediate',40],
+['Balance Sheet Finalisation','Year-end checklist, closing entries and finalisation workflow.','Advanced',50]]},
+{code:'AUD',title:'Auditing & Assurance',icon:'\u{1F50D}',color:'#1b4266',desc:'Standards on Auditing and the practical execution of a statutory audit - planning, evidence, controls, documentation and reporting.',
+topics:[['Standards on Auditing','SA framework, structure and mandatory nature of SAs.','Beginner',35],
+['Audit Planning','Engagement acceptance, strategy, materiality and the audit plan.','Intermediate',40],
+['Audit Evidence','Sufficiency, appropriateness and sources of evidence (SA 500).','Intermediate',35],
+['Risk Assessment','Understanding the entity, RoMM, inherent and control risk (SA 315).','Advanced',40],
+['Internal Controls','Components of internal control, walkthroughs and control testing.','Advanced',40],
+['Vouching','Examination of transactions with supporting documents.','Beginner',30],
+['Verification','Existence, ownership, valuation and presentation of assets and liabilities.','Intermediate',30],
+['Substantive Procedures','Tests of details - design and execution for key balances.','Intermediate',35],
+['Analytical Procedures','Ratio, trend and reasonableness testing (SA 520).','Intermediate',30],
+['Audit Documentation','Working papers, indexing, cross-referencing and file discipline (SA 230).','Beginner',30],
+['Audit Report','Elements of the report, opinion types and modifications (SA 700/705).','Advanced',40],
+['CARO 2020','Clause-wise reporting requirements and evidence needed.','Advanced',45],
+['Companies Act Audit Requirements','Sections 139-148, appointment, rotation, powers and duties.','Advanced',40]]},
+{code:'ITX',title:'Income Tax',icon:'\u{1F9FE}',color:'#8a4b12',desc:'Direct tax law and compliance - computation of total income, TDS, advance tax, return filing, tax audit and departmental proceedings.',
+topics:[['Basic Concepts','Assessment year, previous year, person, income, charge of tax, slabs.','Beginner',35],
+['Residential Status','Section 6 tests for individuals, HUFs and companies; scope of income.','Beginner',35],
+['Heads of Income','Five heads, classification principles and computation flow.','Beginner',30],
+['Salary','Allowances, perquisites, retirement benefits, standard deduction.','Intermediate',45],
+['House Property','Annual value, deductions u/s 24, interest limits, let-out vs self-occupied.','Intermediate',35],
+['Business & Profession','Sections 28-44, allowable and disallowable expenses, presumptive schemes.','Advanced',50],
+['Capital Gains','Capital asset, transfer, indexation, exemptions u/s 54 series.','Advanced',50],
+['Income from Other Sources','Residual head, gifts, interest, dividends, casual income.','Beginner',25],
+['Deductions (Chapter VI-A)','80C to 80U - conditions, limits and documentation.','Intermediate',35],
+['TDS','Chapter XVII-B - rates, timing, deposit, returns, certificates.','Intermediate',45],
+['Advance Tax','Liability, instalments, interest u/s 234B and 234C.','Intermediate',30],
+['ITR Filing','Selection of forms, e-filing workflow, verification, revision.','Beginner',35],
+['Tax Audit','Section 44AB thresholds, Form 3CA/3CB and 3CD clauses.','Advanced',50],
+['Income Tax Notices','Sections 139(9), 143(1), 143(2), 148 - reading and responding.','Advanced',40]]},
+{code:'GST',title:'Goods & Services Tax',icon:'\u{1F3DB}',color:'#1d4f8b',desc:'Learn the fundamentals and practical application of GST - registration, invoicing, input tax credit, returns, reconciliation, refunds and assessments.',
+topics:[['Introduction to GST','Concept, structure (CGST/SGST/IGST), supply and the dual GST model.','Beginner',35],
+['GST Registration','Threshold limits, compulsory registration, process and amendments.','Beginner',35],
+['Tax Invoice','Mandatory particulars, timelines, debit and credit notes.','Beginner',30],
+['Time of Supply','Determining when the liability arises for goods and services.','Intermediate',30],
+['Place of Supply','Sections 10-13 of IGST - inter-state vs intra-state determination.','Advanced',40],
+['Input Tax Credit','Eligibility, conditions, blocked credits, reversal and accounting.','Advanced',45],
+['Reverse Charge Mechanism','Notified supplies, self-invoicing and payment discipline.','Intermediate',30],
+['GSTR-1','Outward supply return - tables, amendments and common errors.','Beginner',30],
+['GSTR-3B','Summary return, liability set-off, DRC-03 and late fees.','Intermediate',35],
+['GST Annual Return (GSTR-9/9C)','Annual consolidation and reconciliation statement.','Advanced',45],
+['GST Reconciliation','2B vs books vs 3B vs 1 - a practical reconciliation approach.','Advanced',45],
+['GST Refund','Refund categories, RFD-01, documentation and timelines.','Advanced',35],
+['E-Invoicing','Applicability, IRN and QR code, schema and validation errors.','Intermediate',30],
+['E-Way Bill','When required, validity, Part A and B, consequences of default.','Beginner',30],
+['GST Notices & Assessments','ASMT-10, DRC-01, Sections 73 and 74 and drafting replies.','Advanced',45]]},
+{code:'COR',title:'Companies & LLP',icon:'\u{1F3E2}',color:'#5c3a91',desc:'Corporate law compliance - incorporation, constitutional documents, governance, statutory registers, MCA filings and LLP compliance.',
+topics:[['Company Incorporation','SPICe+, name reservation, DIN, documents and post-incorporation steps.','Beginner',40],
+['Memorandum of Association','Clauses, object clause drafting and alteration procedure.','Beginner',30],
+['Articles of Association','Contents, entrenchment and alteration by special resolution.','Beginner',25],
+['Directors','Appointment, qualification, DIN, KYC, disqualification, resignation.','Intermediate',40],
+['Share Capital','Types, allotment, private placement, transfer and buy-back basics.','Advanced',40],
+['Board & General Meetings','Notice, quorum, agenda, resolutions and minutes drafting.','Intermediate',35],
+['Annual Filings','AOC-4, MGT-7/7A, timelines, attachments and additional fees.','Intermediate',35],
+['LLP Incorporation','FiLLiP, LLP agreement and initial compliance.','Beginner',30],
+['LLP Compliance','Form 8, Form 11, audit applicability and penalties.','Intermediate',30],
+['MCA Forms & Portal','V2/V3 navigation, DSC, SRN tracking and common filing errors.','Beginner',25]]},
+{code:'EXL',title:'Excel & MIS',icon:'\u{1F7CA}',color:'#1f7a4d',desc:'Practical spreadsheet skills used daily in audit and accounting work - functions, lookups, pivots, data cleaning and MIS preparation.',
+topics:[['Excel Basics','Workbook structure, navigation, formatting, shortcuts and printing.','Beginner',25],
+['Important Excel Functions','Text, logical, date and aggregate functions used in audit work.','Beginner',40],
+['Pivot Tables','Building, grouping, calculated fields, slicers and refresh discipline.','Intermediate',35],
+['XLOOKUP / VLOOKUP','Lookup logic, exact vs approximate match, error handling.','Intermediate',30],
+['SUMIFS & COUNTIFS','Multi-criteria aggregation for ledger and GST analysis.','Intermediate',30],
+['Financial Data Analysis','Cleaning raw data, duplicates, text-to-columns, Power Query introduction.','Advanced',40],
+['MIS Preparation','Designing a monthly MIS pack with dashboards and variance analysis.','Advanced',45]]},
+{code:'TLY',title:'Tally & Accounting Software',icon:'\u{1F4BB}',color:'#a3541d',desc:'Working confidently in accounting software - masters, vouchers, GST configuration, reconciliation and report extraction.',
+topics:[['Tally Basics','Company creation, masters, groups, ledgers and navigation.','Beginner',30],
+['Accounting Entries in Tally','Voucher types, cost centres, bill-wise details and adjustments.','Beginner',35],
+['GST in Tally','GST masters, rate setup, GST reports and return-ready data.','Intermediate',35],
+['Bank Reconciliation in Tally','BRS utility, importing statements and clearing dates.','Beginner',25],
+['Reports & Data Export','Trial balance, ledgers, ageing and exporting to Excel or PDF.','Beginner',25]]},
+{code:'FIN',title:'Finance & Business',icon:'\u{1F4C8}',color:'#0f5f6e',desc:'Analytical and advisory skills - statement analysis, ratios, budgets, forecasts, modelling and valuation fundamentals.',
+topics:[['Financial Statement Analysis','Reading statements analytically; horizontal and vertical analysis.','Intermediate',40],
+['Ratio Analysis','Liquidity, solvency, activity and profitability ratios with interpretation.','Intermediate',40],
+['Budgeting','Types of budgets, preparation process and variance analysis.','Intermediate',35],
+['Forecasting','Revenue drivers, assumptions and rolling forecasts.','Advanced',35],
+['Cash Flow Management','Working capital cycle, cash budgets and liquidity planning.','Intermediate',35],
+['Financial Modelling','Three-statement model structure, best practices and checks.','Advanced',50],
+['MIS Reporting','Management reporting pack, KPIs and commentary writing.','Intermediate',35],
+['Business Valuation','DCF, comparables and NAV approaches - an introduction.','Advanced',45]]},
+{code:'PRO',title:'Business & Professional Skills',icon:'\u{1F3AF}',color:'#7a1f4b',desc:'Conduct expected of a professional trainee - ethics, confidentiality, communication, documentation discipline and client handling.',
+topics:[['Professional Ethics & Conduct','Independence, integrity, objectivity and the Code of Ethics.','Beginner',30],
+['Client Communication & Email Etiquette','Drafting professional emails, follow-ups and escalation.','Beginner',25],
+['Working Paper Discipline','Naming, indexing, version control and review trails.','Beginner',25],
+['Data Confidentiality & Security','Handling client data, passwords, sharing and device hygiene.','Beginner',25],
+['Time & Task Management','Job planning, timesheets, prioritisation and deadlines.','Beginner',25],
+['Presentation & Reporting Skills','Structuring findings and presenting to seniors and clients.','Intermediate',30]]}
+];
+
+/* -------- fully authored flagship modules --------- */
+var FULL={
+'GST-06':{obj:['Explain the meaning and purpose of Input Tax Credit','Apply the four cumulative conditions of Section 16(2)','Identify blocked credits under Section 17(5)','Determine the time limit for availing ITC','Compute and account for reversal of ITC under Rules 42 and 43','Avoid the common ITC errors found in practice'],
+blocks:[B.h('1. Introduction'),
+B.p('GST is designed as a **value added tax**. Tax is charged at every stage of the supply chain, but a registered person is allowed to reduce the tax already paid on inward supplies from the tax payable on outward supplies. This mechanism is called **Input Tax Credit (ITC)**. Without ITC the same value would be taxed repeatedly and the tax would cascade.'),
+B.co('key','Key Takeaway','ITC is not a concession - it is the structural backbone of GST. However it is a **conditional right**: the credit survives only if every statutory condition is satisfied and continues to be satisfied.'),
+B.h('2. Meaning of Input Tax Credit'),
+B.p('Section 2(62) defines *input tax* as the central tax, State tax, integrated tax or Union territory tax charged on any supply of goods or services made to a registered person. It includes tax paid under reverse charge but **excludes** tax paid under the composition levy.'),
+B.tb(['Term|Section|Meaning','Input|2(59)|Goods other than capital goods used or intended to be used in the course or furtherance of business','Input service|2(60)|Any service used or intended to be used in the course or furtherance of business','Capital goods|2(19)|Goods capitalised in the books of account and used for business','Input tax credit|2(63)|Credit of input tax']),
+B.h('3. Eligibility - Section 16(1)'),
+B.ul(['The person must be **registered** under GST.','The goods or services must be used or intended to be used **in the course or furtherance of business**.','Credit is availed in the manner and within the time prescribed.','Credit is claimed in the electronic credit ledger through the return.']),
+B.h('4. The Four Cumulative Conditions - Section 16(2)'),
+B.ol(['**Possession of a tax invoice** or debit note issued by a registered supplier, or another prescribed tax-paying document.','**Receipt of goods or services**, including deemed receipt in bill-to-ship-to transactions.','**Tax has actually been paid** to the Government by the supplier, in cash or through utilisation of credit.','**Return has been furnished** under Section 39 by the recipient.']),
+B.co('important','Important','Section 16(2)(aa) additionally requires that the invoice details must be **furnished by the supplier in GSTR-1 and communicated to the recipient in GSTR-2B**. If the invoice does not appear in GSTR-2B the credit is not available in that period, irrespective of possession of the invoice.'),
+B.co('caution','Caution - Rule 37 (180-day rule)','If the recipient fails to pay the supplier the value of supply along with tax within **180 days** from the date of invoice, the ITC availed must be reversed with interest. It may be re-availed when payment is made.'),
+B.h('5. Blocked Credit - Section 17(5)'),
+B.p('Certain credits are specifically **blocked** even if the expense is genuinely incurred for business. The items encountered most frequently are:'),
+B.tb(['Clause|Blocked item|Notable exception','(a)/(aa)|Motor vehicles for transport of persons, seating capacity up to 13|Further supply of such vehicles, passenger transportation, driving training','(b)|Food and beverages, outdoor catering, club, health and fitness centre|Inward supply used for an outward taxable supply of the same category, or a statutory obligation to employees','(b)|Life and health insurance, travel benefits to employees on leave|Statutory obligation under any law','(c)/(d)|Works contract services and goods or services for construction of immovable property|Plant and machinery; further supply of works contract service','(e)|Goods or services on which composition tax is paid|-','(g)|Goods or services used for personal consumption|-','(h)|Goods lost, stolen, destroyed, written off, or given as gifts and free samples|-','(i)|Tax paid under Sections 74, 129 and 130|-']),
+B.h('6. Apportionment and Reversal'),
+B.p('Where inward supplies are used **partly** for business and partly for other purposes, or partly for taxable and partly for exempt supplies, credit must be apportioned under Section 17(1) and (2), computed as per **Rule 42** for inputs and input services and **Rule 43** for capital goods.'),
+B.fo('Common credit (C2)      = Total common credit (C1) - Credit attributable exclusively to taxable supplies\nIneligible portion (D1) = (Exempt turnover / Total turnover) x C2\nD2                     = 5% of C2 (non-business use)\nEligible common credit  = C2 - (D1 + D2)'),
+B.co('remember','Remember','Reversal is also triggered by credit notes issued by the supplier, non-payment within 180 days, goods lost or written off, switching to the composition scheme, and cancellation of registration.'),
+B.h('7. Time Limit for Availing ITC - Section 16(4)'),
+B.p('ITC in respect of an invoice or debit note for a financial year cannot be availed after the **30th day of November** following the end of that financial year, or the date of furnishing the annual return, **whichever is earlier**.'),
+B.co('example','Example','An invoice dated 12 August 2024 (FY 2024-25) must be availed on or before the GSTR-3B in which it is claimed, and in any case not later than 30 November 2025 or the date of filing GSTR-9 for FY 2024-25, whichever is earlier. Missing this date results in a **permanent loss of credit**.'),
+B.h('8. Order of Utilisation - Section 49 and Rule 88A'),
+B.tb(['Credit available|Can be set off against','IGST|IGST first, then CGST and SGST in any order','CGST|CGST, then IGST','SGST/UTGST|SGST/UTGST, then IGST, only after CGST credit is exhausted']),
+B.h('9. Practical Accounting Treatment'),
+B.p('Purchase of goods worth Rs 1,00,000 plus CGST Rs 9,000 and SGST Rs 9,000:'),
+B.fo('Purchases A/c ................. Dr.  1,00,000\nInput CGST A/c ................ Dr.      9,000\nInput SGST A/c ................ Dr.      9,000\n   To Supplier A/c .......................... 1,18,000'),
+B.p('At the time of set-off, Output CGST and SGST are debited and Input CGST and SGST credited; the balance payable is discharged in cash through the electronic cash ledger.'),
+B.co('tip','Practical Tip','Maintain a monthly working: **GSTR-2B to purchase register to ITC claimed in 3B**. Keep three buckets - "matched", "in books but not in 2B" (follow up with the supplier), and "in 2B but not in books" (missing invoice). This single working answers most departmental queries.'),
+B.h('10. Common Mistakes Observed in Practice'),
+B.ul(['Claiming ITC on employee food bills, staff welfare and gifts.','Claiming credit on invoices where the supplier has not filed GSTR-1.','Availing credit on advances paid for goods before receipt.','Ignoring the 180-day payment rule for old creditors.','Failing to reverse ITC attributable to exempt turnover such as interest income or sale of land.','Claiming credit on a bill of supply, proforma invoice or a debit note without GST particulars.','Availing IGST credit under the CGST and SGST heads.']),
+B.h('11. Summary')],
+rev:['ITC is a conditional right - all four conditions of Section 16(2) must be satisfied.','The invoice must appear in GSTR-2B; possession of an invoice alone is not enough.','Section 17(5) blocks specified credits regardless of business use.','Reversal is required under Rule 37 (180 days), Rules 42 and 43 (exempt use) and on credit notes, write-offs and losses.','The outer time limit is 30 November of the following financial year or the annual return date, whichever is earlier.','Reconcile 2B with the books every month, never only at the year end.']},
+
+'ITX-10':{obj:['Identify transactions attracting TDS and the applicable section','Determine the correct rate, threshold and time of deduction','Comply with deposit, return and certificate timelines','Compute interest, fees and penalties for default','Handle lower or nil deduction certificates and 26AS reconciliation'],
+blocks:[B.h('1. Concept'),
+B.p('Tax Deduction at Source is a mechanism for collecting tax **at the point of payment**. The payer deducts a prescribed percentage and deposits it with the Government on behalf of the payee, who claims it as a credit against total tax liability.'),
+B.h('2. Frequently Applied Sections'),
+B.tb(['Section|Nature of payment|Threshold|Common rate','192|Salary|Basic exemption|Slab or average rate','194A|Interest other than securities|Rs 40,000 (Rs 50,000 senior citizens); Rs 5,000 others|10%','194C|Payment to contractor|Rs 30,000 single / Rs 1,00,000 aggregate|1% individual or HUF, 2% others','194H|Commission or brokerage|Rs 15,000|5%','194I|Rent of plant and machinery|Rs 2,40,000|2%','194I|Rent of land, building, furniture|Rs 2,40,000|10%','194J|Professional or technical fees|Rs 30,000|10% (2% for technical services)','194Q|Purchase of goods|Rs 50 lakh|0.1%','194IA|Transfer of immovable property|Rs 50 lakh|1%','206C(1H)|Collection on sale of goods|Rs 50 lakh|0.1%']),
+B.co('important','Important','Where PAN is not furnished, Section 206AA mandates deduction at the **higher of** the specified rate, the rate in force, or **20%**. Verify PAN validity before the first payment to a vendor.'),
+B.h('3. Time of Deduction'),
+B.p('Generally deduction is required at the time of **credit to the account of the payee or payment, whichever is earlier**. For salary under Section 192, deduction is at the time of payment only.'),
+B.h('4. Deposit and Return Timelines'),
+B.tb(['Compliance|Due date','Deposit for April to February|7th of the following month','Deposit for March|30 April','Section 194IA and 194IB deposit|30 days from the end of the month, Form 26QB or 26QC','Quarterly return Q1, Q2, Q3|31 July, 31 October, 31 January','Quarterly return Q4|31 May','Form 16 for salary|15 June','Form 16A for non-salary|15 days from the return due date']),
+B.h('5. Consequences of Default'),
+B.tb(['Default|Consequence','Non-deduction|Interest at 1% per month from the due date of deduction to the date of deduction','Non-payment after deduction|Interest at 1.5% per month from the date of deduction to the date of payment','Late filing of return|Fee of Rs 200 per day u/s 234E, capped at the TDS amount','Incorrect information|Penalty of Rs 10,000 to Rs 1,00,000 u/s 271H','Non-deduction on an expense|30% disallowance u/s 40(a)(ia) for residents, 100% u/s 40(a)(i) for non-residents']),
+B.co('tip','Practical Tip','Prepare a monthly **TDS applicability sheet** from the expense ledger: ledger name, nature of payment, section, threshold status, rate, amount deducted. This one sheet prevents almost all deduction-side errors and supports the tax audit clause on TDS.'),
+B.h('6. Lower or Nil Deduction'),
+B.ul(['**Form 13** application by the deductee and a certificate u/s 197 issued by the Assessing Officer.','**Form 15G and 15H** self-declarations for interest, subject to conditions.','Certificates must be validated on TRACES and applied only for the period and amount specified.']),
+B.h('7. Reconciliation Discipline'),
+B.ol(['Reconcile TDS as per books with Form 26AS and the TRACES challan status.','Resolve short-payment and PAN-error defaults promptly through correction statements.','Reconcile expense ledgers with TDS deducted to detect missed deductions before the year end.','Verify that credits appear in the AIS or 26AS of the deductee for the correct assessment year.']),
+B.h('8. Summary')],
+rev:['Deduct at credit or payment, whichever is earlier, except salary.','Deposit by the 7th; March deductions by 30 April.','No PAN means 20% or higher under Section 206AA.','Interest is 1% for non-deduction and 1.5% for non-payment.','Non-deduction can lead to a 30% disallowance of the expense.','Reconcile books, challans, returns and 26AS every quarter.']},
+
+'AUD-02':{obj:['Perform engagement acceptance and continuance procedures','Distinguish audit strategy from the detailed audit plan','Compute and apply materiality and performance materiality','Prepare a practical audit programme and time budget','Understand the documentation expected at the planning stage'],
+blocks:[B.h('1. Why Planning Matters'),
+B.p('SA 300 requires the auditor to plan the audit so that it is performed in an **effective manner**. Planning is not a one-time event at the beginning; it is a **continual and iterative process** that continues throughout the engagement as new information emerges.'),
+B.h('2. Preliminary Engagement Activities'),
+B.ul(['Client acceptance or continuance evaluation and integrity assessment.','Compliance with ethical requirements, including **independence** under SA 220 and the Code of Ethics.','Establishing the terms of engagement through an **engagement letter** under SA 210.','Verifying eligibility under Section 141 and completion of appointment formalities including ADT-1.']),
+B.co('caution','Caution','Never begin fieldwork before a signed engagement letter is on file and independence declarations of the team are obtained. This is a frequent peer review observation.'),
+B.h('3. Overall Audit Strategy'),
+B.tb(['Element|What the strategy records','Scope|Reporting framework, group components, statutory reports such as CARO and IFC','Timing|Interim visit, year-end date, reporting deadline, board meeting date','Direction|Materiality, risk areas, involvement of experts, use of internal audit','Resources|Team composition, seniority mix, hours, specialist support']),
+B.h('4. The Audit Plan'),
+B.p('The plan converts strategy into procedures - the nature, timing and extent of **risk assessment procedures**, **tests of controls** and **substantive procedures** for each material class of transactions, account balance and disclosure.'),
+B.h('5. Materiality (SA 320)'),
+B.fo('Overall materiality           = benchmark x percentage\n  e.g. 5% of profit before tax, 1% of turnover, or 1-2% of total assets\nPerformance materiality       = 50% to 75% of overall materiality\nClearly trivial threshold     = 5% to 10% of overall materiality'),
+B.co('example','Example','Turnover Rs 80 crore and PBT Rs 4 crore. Using 5% of PBT, overall materiality is Rs 20 lakh. Performance materiality at 65% is Rs 13 lakh. The clearly trivial threshold is Rs 1 lakh. Any uncorrected misstatement above Rs 1 lakh is accumulated for evaluation.'),
+B.h('6. Practical Planning Checklist'),
+B.ol(['Obtain the trial balance, prior year signed financial statements and audit report.','Read the minutes of board and general meetings for the year.','Obtain the list of related parties and confirm completeness.','Perform a preliminary analytical review of ratios and month-wise trends.','Identify significant and unusual transactions during the year.','Assess going concern indicators.','Fix materiality and document the basis.','Prepare the audit programme, allocate work and set the time budget.','Send the requirement list and confirmation requests early.','Agree the audit timetable with management.']),
+B.co('tip','Practical Tip','Send the **information request list** at least two weeks before fieldwork and track it with dates and the responsible client personnel. The tracker becomes your documented evidence of client-side delays.'),
+B.h('7. Documentation'),
+B.ul(['Overall audit strategy memorandum.','Audit plan and programme, signed by the preparer and reviewer.','Materiality working with basis and revisions.','Team discussion minutes on fraud risk under SA 240.','Any significant change in strategy or plan, with reasons.']),
+B.h('8. Summary')],
+rev:['Planning is continuous, not a one-off exercise.','The engagement letter and independence come before fieldwork.','Strategy sets scope, timing and direction; the plan sets procedures.','Document materiality, performance materiality and the trivial threshold.','A team discussion on fraud risk is mandatory and must be documented.']}};
+
+function autoBlocks(t,s){return[
+B.h('1. Introduction'),
+B.p('This module covers **'+t.title+'** as part of the '+s.title+' curriculum. '+t.summary+' The material is written from a practical, working-paper perspective so that you can apply it directly on client assignments.'),
+B.co('key','Why This Matters','A trainee is expected to handle '+t.title.toLowerCase()+' independently within the first few assignments. Understand the principle first, then the procedure, then the documentation.'),
+B.h('2. Core Concepts'),
+B.ul(['Definition, scope and the governing provision or standard applicable to '+t.title.toLowerCase()+'.','The underlying principle - why the requirement exists and what risk it addresses.','Key terminology that must be used correctly in working papers and client communication.','Interaction with related areas of accounting, audit or tax law.']),
+B.h('3. Statutory or Professional Framework'),
+B.p('Record in your working paper the exact provision relied upon - section, rule, standard or notification number - along with the date of the version applied. Amendments are frequent, so **always verify the provision as on the reporting date**.'),
+B.co('caution','Caution','Do not rely on memory or internet summaries for rates, thresholds and due dates. Verify from the bare Act, the official portal or the firm knowledge base before finalising any working.'),
+B.h('4. Step-by-Step Procedure'),
+B.ol(['Obtain the base data, reports or documents from the client and record the source and date.','Verify completeness of the data by tying it back to the trial balance or a control total.','Apply the relevant provision or accounting treatment and compute the required figures.','Identify exceptions, differences and items requiring management explanation.','Discuss exceptions with the senior before raising them with the client.','Document the conclusion, the evidence examined and the reviewer sign-off.']),
+B.h('5. Practical Example'),
+B.co('example','Illustration','Take an actual assignment file and work through '+t.title.toLowerCase()+' end to end: source data, computation, exception list and conclusion. Attach the illustration to this module as your personal reference working. Your senior will review the format once and you can reuse it for every client.'),
+B.h('6. Documentation Requirements'),
+B.ul(['Purpose of the working paper stated at the top.','Source of data with date and the person who provided it.','Method and provision applied.','Exceptions with resolution status.','Conclusion, preparer initials and reviewer initials with dates.']),
+B.h('7. Common Mistakes'),
+B.ul(['Applying an outdated rate, threshold or due date.','Working on incomplete data without a control total check.','Recording conclusions without retaining the supporting evidence.','Raising queries with the client before internal discussion with the senior.','Leaving unexplained differences in a reconciliation.']),
+B.co('tip','Practical Tip','Before submitting any working, ask yourself: if I were to leave the firm tomorrow, could another person reach the same conclusion using only this paper? If not, it is not complete.'),
+B.h('8. Summary')];}
+
+function autoObj(t){return['Explain the meaning and scope of '+t.title,'Identify the governing provision, standard or rule','Apply the correct procedure on a live assignment','Prepare compliant, review-ready documentation','Recognise and avoid the common errors in this area'];}
+function autoRev(t){return['Understand the principle behind '+t.title+' before the procedure.','Always verify the current provision, rate, threshold and due date.','Tie your data back to the trial balance or a control total.','Document source, method, exceptions and conclusion.','Discuss exceptions internally before raising them with the client.'];}
+
+var QUIZBANK=[
+{topic:'GST-06',title:'Input Tax Credit - Assessment',qs:[
+{type:'mcq',text:'Which of the following is NOT a condition under Section 16(2) for availing ITC?',opts:['Possession of a tax invoice','Receipt of goods or services','The supplier must be located in the same State','Furnishing of the return under Section 39'],ans:2,marks:1,exp:'The supplier may be located anywhere in India. An inter-state supply attracts IGST, credit of which is fully available. Location in the same State is not a condition.'},
+{type:'mcq',text:'The outer time limit for availing ITC of an invoice pertaining to FY 2024-25 is:',opts:['31 March 2025','30 September 2025','30 November 2025 or the date of filing GSTR-9, whichever is earlier','31 December 2025'],ans:2,marks:1,exp:'Section 16(4) prescribes 30 November following the end of the financial year, or the date of furnishing the annual return, whichever is earlier.'},
+{type:'multi',text:'Which of the following credits are blocked under Section 17(5)? Select all that apply.',opts:['Membership of a health and fitness centre','Raw material for manufacture of taxable goods','Goods given as free samples','Motor car with five seats purchased for a director'],ans:[0,2,3],marks:2,exp:'Club and fitness membership, free samples and passenger motor vehicles with seating capacity up to 13 are blocked. Raw material used for taxable output is fully eligible.'},
+{type:'tf',text:'ITC must be reversed if payment is not made to the supplier within 180 days from the date of invoice.',opts:['True','False'],ans:0,marks:1,exp:'Correct. Rule 37 requires reversal with interest, with re-availment permitted on payment.'},
+{type:'short',text:'Name the GST statement that must reflect the supplier invoice before the recipient can avail credit.',ans:'GSTR-2B|2B|GSTR 2B',marks:1,exp:'Section 16(2)(aa) links credit to details communicated in GSTR-2B, generated from the supplier GSTR-1.'}]},
+{topic:'ITX-10',title:'TDS - Assessment',qs:[
+{type:'mcq',text:'TDS deducted in the month of March must be deposited by:',opts:['7 April','30 April','31 May','7 May'],ans:1,marks:1,exp:'For deductions in March the due date is 30 April; for other months it is the 7th of the following month.'},
+{type:'mcq',text:'Interest for failure to deposit tax after deduction is:',opts:['1% per month','1.5% per month','2% per month','12% per annum'],ans:1,marks:1,exp:'Section 201(1A) prescribes 1% for non-deduction and 1.5% per month for non-payment after deduction.'},
+{type:'mcq',text:'The rate of TDS on professional fees under Section 194J is generally:',opts:['1%','2%','5%','10%'],ans:3,marks:1,exp:'10% for professional services; 2% for technical services and certain call centre payments.'},
+{type:'tf',text:'If the deductee does not furnish PAN, tax must be deducted at the higher of the specified rate or 20%.',opts:['True','False'],ans:0,marks:1,exp:'Section 206AA mandates deduction at the higher rate, with a floor of 20%.'},
+{type:'multi',text:'Consequences of non-deduction of TDS on an expense include: Select all that apply.',opts:['Interest under Section 201(1A)','Disallowance of 30% of the expense u/s 40(a)(ia)','Automatic prosecution of all directors','Late fee of Rs 200 per day u/s 234E'],ans:[0,1],marks:2,exp:'Interest and the 30% disallowance apply. Section 234E fee is for late filing of the TDS return, not for non-deduction. Prosecution is not automatic.'}]},
+{topic:'AUD-02',title:'Audit Planning - Assessment',qs:[
+{type:'mcq',text:'Which Standard on Auditing deals with planning an audit of financial statements?',opts:['SA 200','SA 230','SA 300','SA 320'],ans:2,marks:1,exp:'SA 300, Planning an Audit of Financial Statements.'},
+{type:'mcq',text:'Performance materiality is generally set at:',opts:['5% to 10% of overall materiality','25% of overall materiality','50% to 75% of overall materiality','Equal to overall materiality'],ans:2,marks:1,exp:'Performance materiality is set below overall materiality, commonly 50% to 75%, to reduce aggregation risk.'},
+{type:'tf',text:'Audit planning is a one-time activity completed before commencement of fieldwork.',opts:['True','False'],ans:1,marks:1,exp:'False. Planning is continual and iterative throughout the engagement.'},
+{type:'short',text:'Which document must be signed with the client before commencing the audit, setting out the terms of the engagement?',ans:'engagement letter',marks:1,exp:'SA 210 requires an engagement letter recording the agreed terms.'}]},
+{topic:'ACC-01',title:'Accounting Standards - Assessment',qs:[
+{type:'mcq',text:'Accounting Standards are notified for companies under which section of the Companies Act, 2013?',opts:['Section 128','Section 129','Section 133','Section 143'],ans:2,marks:1,exp:'Section 133 empowers the Central Government to prescribe accounting standards in consultation with NFRA.'},
+{type:'mcq',text:'AS 29 deals with:',opts:['Employee Benefits','Provisions, Contingent Liabilities and Contingent Assets','Impairment of Assets','Borrowing Costs'],ans:1,marks:1,exp:'AS 29 covers provisions and contingencies. AS 15 is employee benefits, AS 28 impairment and AS 16 borrowing costs.'},
+{type:'tf',text:'An unlisted company with a net worth of Rs 300 crore is required to prepare its financial statements under Ind AS.',opts:['True','False'],ans:0,marks:1,exp:'Companies with a net worth of Rs 250 crore or more must apply Ind AS, whether listed or unlisted.'},
+{type:'short',text:'Which Accounting Standard requires disclosure of accounting policies?',ans:'AS 1|AS-1|1',marks:1,exp:'AS 1, Disclosure of Accounting Policies.'}]}];
+
+/* ============ SEED ============ */
+function seed(){
+DB={settings:{firmName:'Wealcco',portalName:'Intern Training Portal',mark:'SA',accent:'#c9a227',certificates:false,passMark:60},
+users:[],subjects:[],topics:[],quizzes:[],progress:[],attempts:[],announcements:[],resources:[],activity:[],certificates:[]};
+DB.users.push({id:'U-ADMIN',role:'admin',name:'Administrator',email:'admin@firm.com',pass:'Admin@123',mobile:'9800000000',
+joining:'2020-04-01',dept:'Management',desig:'Partner',batch:'-',status:'Active',subjects:'all',created:now()});
+var interns=[['Rahul Verma','rahul@firm.com','9811111111','2024-06-01','Audit','Article Assistant','Batch 2024-A'],
+['Priya Nair','priya@firm.com','9822222222','2024-06-01','Taxation','Article Assistant','Batch 2024-A'],
+['Arjun Mehta','arjun@firm.com','9833333333','2024-09-15','GST & Indirect Tax','Intern','Batch 2024-B']];
+interns.forEach(function(i,n){DB.users.push({id:'U-'+(101+n),role:'intern',name:i[0],email:i[1],pass:'Intern@123',
+mobile:i[2],joining:i[3],dept:i[4],desig:i[5],batch:i[6],status:'Active',subjects:'all',created:now()});});
+CURRICULUM.forEach(function(s,si){
+DB.subjects.push({id:s.code,code:s.code,title:s.title,icon:s.icon,color:s.color,desc:s.desc,order:si+1,active:true});
+s.topics.forEach(function(t,ti){
+var id=s.code+'-'+String(ti+1).padStart(2,'0'),f=FULL[id],o={title:t[0],summary:t[1]};
+DB.topics.push({id:id,subjectId:s.code,order:ti+1,title:t[0],summary:t[1],difficulty:t[2],minutes:t[3],
+objectives:f?f.obj:autoObj(o),blocks:f?f.blocks:autoBlocks(o,s),revision:f?f.rev:autoRev(o),updated:now(),published:true});
+});});
+QUIZBANK.forEach(function(q){DB.quizzes.push({id:'Q-'+q.topic,topicId:q.topic,title:q.title,passMark:60,active:true,
+questions:q.qs.map(function(x,i){x.id='Q-'+q.topic+'-'+i;return x;})});});
+DB.announcements=[
+{id:uid('an'),title:'Welcome to the Firm Training Portal',body:'All interns are required to complete the **Accounting** and **Auditing** modules within the first 30 days. Progress is reviewed every Friday by the training partner.',priority:'High',date:today(),by:'Administrator'},
+{id:uid('an'),title:'GST Return Season - Focus Modules',body:'Please complete GSTR-1, GSTR-3B and GST Reconciliation before the 8th of this month. These modules directly support the client filings allotted to you.',priority:'Normal',date:today(),by:'Administrator'},
+{id:uid('an'),title:'Working Paper Format Update',body:'A revised working paper template has been uploaded under **Resources**. Use only the revised format from this month onwards.',priority:'Normal',date:today(),by:'Administrator'}];
+DB.resources=[
+{id:uid('r'),title:'Audit Working Paper Template',subjectId:'AUD',type:'Excel',url:'',note:'Standard firm template for audit working papers.',allow:true,date:today()},
+{id:uid('r'),title:'GST Reconciliation Format (2B vs Books)',subjectId:'GST',type:'Excel',url:'',note:'Monthly ITC reconciliation working format.',allow:true,date:today()},
+{id:uid('r'),title:'TDS Rate Chart',subjectId:'ITX',type:'PDF',url:'',note:'Section-wise TDS rates, thresholds and due dates.',allow:true,date:today()},
+{id:uid('r'),title:'Income Tax Department Portal',subjectId:'ITX',type:'Link',url:'https://incometaxindia.gov.in',note:'Bare Act and notifications.',allow:true,date:today()},
+{id:uid('r'),title:'GST Portal',subjectId:'GST',type:'Link',url:'https://www.gst.gov.in',note:'Returns, notices and registration.',allow:true,date:today()},
+{id:uid('r'),title:'MCA Portal',subjectId:'COR',type:'Link',url:'https://www.mca.gov.in',note:'Company filings and forms.',allow:true,date:today()},
+{id:uid('r'),title:'ICAI Standards and Announcements',subjectId:'AUD',type:'Link',url:'https://www.icai.org',note:'SAs, AS and Ind AS material.',allow:true,date:today()}];
+var sd=7;function rnd(){sd=(sd*9301+49297)%233280;return sd/233280;}
+DB.users.filter(function(u){return u.role==='intern'}).forEach(function(u,ui){
+DB.subjects.forEach(function(s){
+var tp=topicsOf(s.id),share=[0.55,0.4,0.28][ui]*(0.55+rnd()),n=Math.min(tp.length,Math.round(tp.length*share));
+for(var i=0;i<n;i++){var d=new Date();d.setDate(d.getDate()-Math.floor(rnd()*40));
+DB.progress.push({userId:u.id,topicId:tp[i].id,status:'completed',completedAt:d.toISOString(),lastViewed:d.toISOString(),time:600+Math.floor(rnd()*1500)});}
+if(n<tp.length&&rnd()>0.5){var e=new Date();e.setDate(e.getDate()-Math.floor(rnd()*4));
+DB.progress.push({userId:u.id,topicId:tp[n].id,status:'inprogress',completedAt:null,lastViewed:e.toISOString(),time:300});}});
+DB.quizzes.slice(0,2+ui).forEach(function(q){
+var tot=q.questions.reduce(function(a,b){return a+(b.marks||1)},0),sc=Math.max(1,Math.round(tot*(0.6+rnd()*0.4)));
+var d=new Date();d.setDate(d.getDate()-Math.floor(rnd()*20));
+DB.attempts.push({id:uid('at'),userId:u.id,quizId:q.id,topicId:q.topicId,score:sc,total:tot,pct:pct(sc,tot),date:d.toISOString()});});
+log(u.id,u.name+' joined the training programme');});
+save();
+}
+
+function log(u,t){DB.activity.unshift({id:uid('a'),userId:u,text:t,at:now()});DB.activity=DB.activity.slice(0,300);}
+
+/* ============ DATA ACCESS ============ */
+function subjectsFor(u){var all=DB.subjects.filter(function(s){return s.active!==false}).sort(function(a,b){return a.order-b.order});
+if(!u||u.role==='admin'||u.subjects==='all'||!Array.isArray(u.subjects))return all;
+return all.filter(function(s){return u.subjects.indexOf(s.id)>-1});}
+function topicsOf(sid){return DB.topics.filter(function(t){return t.subjectId===sid&&t.published!==false}).sort(function(a,b){return a.order-b.order});}
+function topic(id){return DB.topics.filter(function(t){return t.id===id})[0];}
+function subject(id){return DB.subjects.filter(function(s){return s.id===id})[0];}
+function pr(u,t){return DB.progress.filter(function(p){return p.userId===u&&p.topicId===t})[0];}
+function subjProg(u,sid){var t=topicsOf(sid),d=t.filter(function(x){var p=pr(u,x.id);return p&&p.status==='completed'}).length;
+return{total:t.length,done:d,pct:pct(d,t.length)};}
+function allProg(uid_,u){var tot=0,d=0;subjectsFor(u).forEach(function(s){var x=subjProg(uid_,s.id);tot+=x.total;d+=x.done;});
+return{total:tot,done:d,pct:pct(d,tot)};}
+function quizOf(t){return DB.quizzes.filter(function(q){return q.topicId===t&&q.active!==false})[0];}
+function attemptsOf(u,q){return DB.attempts.filter(function(a){return a.userId===u&&(q||a.quizId===q)}).sort(function(a,b){return b.date.localeCompare(a.date)});}
+function bestPct(u,q){var a=attemptsOf(u,q);return a.length?Math.max.apply(null,a.map(function(x){return x.pct})):null;}
+function avgQuiz(u){var a=attemptsOf(u);if(!a.length)return null;var by={};
+a.forEach(function(x){by[x.quizId]=Math.max(by[x.quizId]||0,x.pct)});
+var v=Object.keys(by).map(function(k){return by[k]});return Math.round(v.reduce(function(p,c){return p+c},0)/v.length);}
+function nextTopics(u,n){var out=[];subjectsFor(u).forEach(function(s){topicsOf(s.id).forEach(function(t){
+var p=pr(u.id,t.id);if((!p||p.status!=='completed')&&out.length<n*5)out.push({t:t,s:s});});});return out.slice(0,n);}
+function lastViewed(u){var ps=DB.progress.filter(function(p){return p.userId===u.id&&p.lastViewed}).sort(function(a,b){return b.lastViewed.localeCompare(a.lastViewed)});
+for(var i=0;i<ps.length;i++){var t=topic(ps[i].topicId);if(t&&ps[i].status!=='completed')return t;}
+var n=nextTopics(u,1);return n.length?n[0].t:null;}
+
+/* ============ AUTH ============ */
+function boot(){
+try{DB=JSON.parse(ST.getItem(DBKEY));}catch(e){DB=null;}
+if(!DB||!DB.subjects||!DB.subjects.length){try{seed();}catch(e){alert('Seeding error: '+e.message);}}
+if(DB.settings)DB.settings={firmName:'Wealcco',portalName:'Intern Training Portal',mark:'SA',accent:'#c9a227',passMark:60,certificates:false};
+try{if(ST.getItem('itp_dark'))document.body.classList.add('dark');}catch(e){}
+applyBrand();
+var s=ST.getItem(SESKEY),u=s?DB.users.filter(function(x){return x.id===s&&x.status==='Active'})[0]:null;
+if(u){USER=u;enterApp();}
+}
+
+function applyBrand(){var st=DB.settings;
+document.documentElement.style.setProperty('--accent',st.accent||'#c9a227');
+$('#loginFirm').textContent=st.firmName;$('#loginMark').textContent=st.mark;
+$('#tbFirm').textContent=st.portalName||'';$('#tbMark').textContent=st.mark;
+document.title=st.portalName+' - '+st.firmName;
+}
+
+function tryLogin(){
+var em=($('#lEmail').value||'').trim().toLowerCase(),pw=($('#lPass').value||'').trim();
+if(!em||!pw){$('#lErr').textContent='Enter both email and password, or use a one-click button below.';return;}
+var u=DB.users.filter(function(x){return String(x.email).trim().toLowerCase()===em})[0];
+if(!u){$('#lErr').textContent='No account found for this email.';return;}
+if(String(u.pass)!==pw){$('#lErr').textContent='Incorrect password. (Passwords are case sensitive.)';return;}
+if(u.status!=='Active'){$('#lErr').textContent='This account has been deactivated. Contact the administrator.';return;}
+signIn(u);
+}
+
+function quick(email){var u=DB.users.filter(function(x){return x.email===email})[0];
+if(!u){alert('Demo account missing. Click "Repair / Reset portal".');return;}signIn(u);}
+function signIn(u){USER=u;u.lastLogin=now();log(u.id,u.name+' signed in');save();
+try{ST.setItem(SESKEY,u.id);}catch(e){}
+$('#lErr').textContent='';$('#login').classList.add('hidden');enterApp();}
+function logout(){try{ST.removeItem(SESKEY);}catch(e){}USER=null;location.hash='';location.reload();}
+function enterApp(){
+$('#app').classList.remove('hidden');$('#login').classList.add('hidden');
+if(!STORAGE_OK)showWarn();
+$('#tbUser').innerHTML=esc(USER.name)+' <span class="pill '+(USER.role==='admin'?'y':'b')+'">'+USER.role+'</span>';
+$('#annCount').textContent=DB.announcements.length;
+buildSidebar();
+if(!location.hash||location.hash==='#')location.hash=USER.role==='admin'?'#/admin':'#/dashboard';else route();
+}
+
+function diag(){alert('DIAGNOSTICS\n\nBrowser storage working: '+(STORAGE_OK?'YES':'NO - running in temporary mode')
++'\nAddress: '+location.href+'\nAccounts loaded: '+(DB?DB.users.length:0)
++'\nSubjects: '+(DB?DB.subjects.length:0)+'  Topics: '+(DB?DB.topics.length:0)
++'\n\nIf accounts loaded is 0, click Repair / Reset portal.');}
+function hardReset(){if(!confirm('Restore the portal to factory content? All local changes will be lost.'))return;
+try{ST.removeItem(DBKEY);ST.removeItem(SESKEY);}catch(e){}location.reload();}
+
+function buildSidebar(){
+var nav=USER.role==='admin'?[
+['ADMINISTRATION',[['#/admin','Admin Dashboard'],['#/admin/interns','Intern Management'],['#/admin/reports','Progress &amp; Reports']]],
+['CONTENT',[['#/admin/content','Content Management'],['#/admin/quizzes','Quizzes &amp; Questions'],['#/admin/announcements','Announcements'],['#/admin/resources','Resources'],['#/admin/certificates','Certificates']]],
+['LEARNING VIEW',[['#/library','Training Library'],['#/dashboard','Learner Dashboard']]],
+['SYSTEM',[['#/admin/settings','Settings'],['#/profile','My Profile']]]]:[
+['LEARNING',[['#/dashboard','Dashboard'],['#/library','Training Library'],['#/progress','My Progress'],['#/quizzes','Quizzes &amp; Assessments']]],
+['FIRM',[['#/announcements','Announcements'],['#/resources','Resources &amp; Downloads'],['#/certificates','Certificates']]],
+['ACCOUNT',[['#/profile','My Profile']]]];
+$('#sidebar').innerHTML=nav.map(function(g){return '<div class="grp">'+g[0]+'</div>'+g[1].map(function(i){
+return '<a href="'+i[0]+'" data-h="'+i[0]+'">'+i[1]+'</a>';}).join('');}).join('')
++'<div class="grp">SUBJECTS</div>'+subjectsFor(USER).map(function(s){
+return '<a href="#/subject/'+s.id+'" data-h="#/subject/'+s.id+'">'+s.icon+' '+esc(s.title)+'</a>';}).join('');
+}
+
+function markNav(){var h=location.hash;$$('#sidebar a').forEach(function(a){a.classList.toggle('on',a.dataset.h===h);});}
+
+/* ============ ROUTER ============ */
+var ROUTES={};
+function route(){
+if(!USER)return;clearInterval(TIMER);
+var raw=location.hash.replace(/^#\/?/,''),parts=raw.split('/'),key=parts[0],arg=parts[1];
+if(parts.length>1&&ROUTES[parts[0]+'/'+parts[1]]){key=parts[0]+'/'+parts[1];arg=parts[2];}
+if(key.indexOf('admin')===0&&USER.role!=='admin'){$('#view').innerHTML='<div class="card"><h2>Access denied</h2><p>You do not have permission to view this page.</p></div>';return;}
+var fn=ROUTES[key]||ROUTES['dashboard'];
+try{fn(arg);}catch(e){$('#view').innerHTML='<div class="card"><h2>Page error</h2><p>'+esc(e.message)+'</p></div>';}
+markNav();window.scrollTo(0,0);if(innerWidth<900)$('#sidebar').classList.remove('open');
+}
+
+window.addEventListener('hashchange',route);
+function doSearch(){var q=$('#gSearch').value.trim();if(q)go('#/search/'+encodeURIComponent(q));}
+
+/* ============ INTERN VIEWS ============ */
+function achvHTML(u){
+var comp=DB.progress.filter(function(p){return p.userId===u.id&&p.status==='completed'}),n=comp.length;
+var at=attemptsOf(u.id),best={};at.forEach(function(a){best[a.quizId]=Math.max(best[a.quizId]||0,a.pct)});
+var bv=Object.keys(best).map(function(k){return best[k]}),xp=n*10+Math.round(bv.reduce(function(a,b){return a+b},0)/5);
+var days={};DB.progress.filter(function(p){return p.userId===u.id&&p.lastViewed}).forEach(function(p){days[p.lastViewed.slice(0,10)]=1});
+var streak=0,d=new Date();if(!days[d.toISOString().slice(0,10)])d.setDate(d.getDate()-1);
+while(days[d.toISOString().slice(0,10)]){streak++;d.setDate(d.getDate()-1);}
+var lv=[[0,'Starter'],[5,'Learner'],[15,'Practitioner'],[30,'Professional'],[50,'Expert']],cur=lv[0],nx=null;
+lv.forEach(function(x,i){if(n>=x[0]){cur=x;nx=lv[i+1]||null;}});
+var full=subjectsFor(u).some(function(s){return subjProg(u.id,s.id).pct===100});
+var bd=[['&#127793;','First Step','Complete your first topic',n>=1],['&#128214;','Committed','Complete 5 topics',n>=5],['&#128170;','On a Roll','Complete 15 topics',n>=15],
+['&#127919;','Quiz Taker','Attempt a quiz',at.length>0],['&#11088;','High Scorer','Score 80%+ in a quiz',bv.some(function(v){return v>=80})],
+['&#128293;','3-Day Streak','Learn 3 days in a row',streak>=3],['&#127942;','Subject Master','Finish a whole subject',full]];
+var got=bd.filter(function(b){return b[3]}).length,tgt=nx?nx[0]-n:0;
+return '<div class="card" style="margin:1.2rem 0;border-top:4px solid var(--accent)"><div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center">'
++'<div><small style="text-transform:uppercase;letter-spacing:.08em;font-weight:700">Your Level</small><h2 style="margin:.1rem 0">&#127891; '+cur[1]+'</h2>'
++'<small>'+(nx?tgt+' more topic'+(tgt>1?'s':'')+' to reach <b>'+nx[1]+'</b>':'Top level reached. Outstanding!')+'</small></div>'
++'<div style="display:flex;gap:1.6rem"><div style="text-align:center"><b style="font-size:1.8rem">'+xp+'</b><br><small>XP points</small></div>'
++'<div style="text-align:center"><b style="font-size:1.8rem">'+streak+' &#128293;</b><br><small>day streak</small></div>'
++'<div style="text-align:center"><b style="font-size:1.8rem">'+got+'/'+bd.length+'</b><br><small>badges</small></div></div></div>'
++'<div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.9rem">'+bd.map(function(b){
+return '<div title="'+b[2]+'" style="flex:1;min-width:105px;text-align:center;padding:.6rem .4rem;border:1px solid var(--line);border-radius:10px;'+(b[3]?'background:rgba(201,162,39,.14)':'opacity:.45;filter:grayscale(1)')+'">'
++'<div style="font-size:1.6rem">'+b[0]+'</div><b style="font-size:12.5px">'+b[1]+'</b><br><small style="font-size:11px">'+(b[3]?'Earned':b[2])+'</small></div>';}).join('')+'</div></div>';}
+
+ROUTES['dashboard']=function(){
+var u=USER,ap=allProg(u.id,u),subs=subjectsFor(u),lv=lastViewed(u),aq=avgQuiz(u.id);
+var qids={};attemptsOf(u.id).forEach(function(a){qids[a.quizId]=1});
+var wk=new Date(Date.now()-6048e5).toISOString(),mo=new Date(Date.now()-2592e6).toISOString();
+var comp=DB.progress.filter(function(p){return p.userId===u.id&&p.status==='completed'});
+var tmin=Math.round(DB.progress.filter(function(p){return p.userId===u.id}).reduce(function(a,p){return a+(p.time||0)},0)/60);
+var la=DB.progress.filter(function(p){return p.userId===u.id&&p.lastViewed}).sort(function(a,b){return b.lastViewed.localeCompare(a.lastViewed)})[0];
+$('#view').innerHTML='<div class="row" style="align-items:center;justify-content:space-between">'
++'<div><h1>Welcome, '+esc(u.name.split(' ')[0])+'</h1><p style="color:var(--muted);margin:0">Every topic you finish builds your skills at Wealcco. Keep the streak going!</p></div>'
++'<div class="card" style="display:flex;gap:1rem;align-items:center;padding:.7rem 1rem">'+donut(ap.pct,86,'Overall progress')
++'<div><b style="font-size:1.1rem">'+ap.done+' / '+ap.total+'</b><br><small>topics completed</small><br><small>'+tmin+' min learning time</small></div>'
++'</div></div>'
++'<div class="stats" style="margin:1.2rem 0">'+stat('Total Subjects',subs.length,'&#128218;')+stat('Total Topics',ap.total,'&#128196;')
++stat('Completed',ap.done,'&#9989;','var(--ok)')+stat('Pending',ap.total-ap.done,'&#8987;','var(--warn)')
++stat('Quizzes Taken',Object.keys(qids).length,'&#10067;')+stat('Average Quiz Score',aq==null?'-':aq+'%','&#127919;','var(--info)')+'</div>'
++achvHTML(u)+(lv?'<div class="card" style="background:linear-gradient(100deg,var(--navy),var(--navy3));color:#fff;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">'
++'<div><small style="color:#cfe0ee;text-transform:uppercase;letter-spacing:.08em">Continue Learning</small>'
++'<h2 style="color:#fff;margin:.2rem 0">'+esc(subject(lv.subjectId).title)+' &middot; '+esc(lv.title)+'</h2>'
++'<small style="color:#cfe0ee">'+esc(lv.summary)+'</small></div><a class="btn gold" href="#/topic/'+lv.id+'">Continue Learning &rarr;</a></div>':'')
++'<div class="grid" style="grid-template-columns:'+(innerWidth<1050?'1fr':'1.4fr 1fr')+';margin-top:1.2rem">'
++'<div class="card"><h2>Subject Progress</h2>'+subs.map(function(s){var p=subjProg(u.id,s.id);
+return '<div style="margin-bottom:.9rem"><div style="display:flex;justify-content:space-between;font-size:14px"><span>'+s.icon+' <a href="#/subject/'+s.id+'">'+esc(s.title)+'</a></span><b>'+p.pct+'% <small>('+p.done+'/'+p.total+')</small></b>'
++'</div>'+bar(p.pct)+'</div>';}).join('')+'</div>'
++'<div class="card"><h2>Recent Announcements</h2>'+DB.announcements.slice(0,3).map(function(a){
+return '<div style="border-bottom:1px solid var(--line);padding:.5rem 0"><div style="display:flex;justify-content:space-between;gap:.4rem">'
++'<b>'+esc(a.title)+'</b><span class="pill '+(a.priority==='High'?'r':'n')+'">'+a.priority+'</span></div><small>'+fdate(a.date)+'</small><div style="font-size:13.5px">'+md(a.body).slice(0,190)+'</div>';}).join('')
++'<a class="btn ghost sm" style="margin-top:.6rem" href="#/announcements">View all &rarr;</a></div>'
++'<div class="card" style="margin-top:1rem"><h2>Recommended Next</h2>'+nextTopics(u,5).map(function(x){
+return '<div style="padding:.45rem 0;border-bottom:1px dashed var(--line)"><a href="#/topic/'+x.t.id+'"><b>'+esc(x.t.title)+'</b></a><br>'
++'<small>'+x.s.icon+' '+esc(x.s.title)+' &middot; '+x.t.minutes+' min &middot; '+x.t.difficulty+'</small></div>';}).join('')||'<p><small>All topics completed. Excellent.</small></p>'+'</div>'
++'<div class="card" style="margin-top:1rem"><h2>Activity Snapshot</h2><table>'
++'<tr><td>Completed this week</td><td><b>'+comp.filter(function(p){return p.completedAt>wk}).length+'</b></td></tr>'
++'<tr><td>Completed this month</td><td><b>'+comp.filter(function(p){return p.completedAt>mo}).length+'</b></td></tr>'
++'<tr><td>Last activity</td><td><b>'+fdt(la?la.lastViewed:null)+'</b></td></tr></table></div></div>';
+};
+
+ROUTES['library']=function(){
+$('#view').innerHTML='<h1>Training Library</h1><p style="color:var(--muted)">Structured professional curriculum. Select a subject to view its topics and begin studying.</p>'
++'<div class="subjcards">'+subjectsFor(USER).map(function(s){var p=subjProg(USER.id,s.id);
+return '<div class="sc"><div class="top" style="background:linear-gradient(120deg,'+s.color+',var(--navy))"><div style="font-size:1.8rem">'+s.icon+'</div>'
++'<h2 style="color:#fff;margin:.3rem 0 0">'+esc(s.title).toUpperCase()+'</h2><small style="color:rgba(255,255,255,.85)">'+p.total+' topics &middot; '+p.done+' completed</small></div>'
++'<div class="bd"><small>'+esc(s.desc).slice(0,150)+'...</small><div>'+bar(p.pct)+'<div style="display:flex;justify-content:space-between;margin-top:.25rem"><small>Progress</small><b>'+p.pct+'%</b></div></div>'
++'<a class="btn" href="#/subject/'+s.id+'">View Subject &rarr;</a></div></div>';}).join('')+'</div>';
+};
+
+ROUTES['subject']=function(id){
+var s=subject(id);if(!s){$('#view').innerHTML='<div class="card">Subject not found.</div>';return;}
+var u=USER,tp=topicsOf(id),p=subjProg(u.id,id);
+$('#view').innerHTML='<div class="crumb"><a href="#/library">Training Library</a> / '+esc(s.title)+'</div>'
++'<div class="card" style="background:linear-gradient(115deg,'+s.color+',var(--navy));color:#fff"><div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center">'
++'<div style="max-width:660px"><div style="font-size:2rem">'+s.icon+'</div><h1 style="color:#fff">'+esc(s.title)+'</h1><p style="color:#dce8f2;margin:0">'+esc(s.desc)+'</p></div>'
++'<div style="text-align:center">'+donut(p.pct,110)+'<small style="color:#dce8f2">'+p.done+' of '+p.total+' topics</small></div></div></div>'
++'<h2 style="margin-top:1.4rem">Topics</h2>'
++tp.map(function(t){var pp=pr(u.id,t.id),st=pp?pp.status:'',q=quizOf(t.id);
+return '<div class="tp '+(st==='completed'?'done':st==='inprogress'?'prog':'')+'"><div class="num">'+(st==='completed'?'&#10003;':t.order)+'</div>'
++'<div style="flex:1"><div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center"><a href="#/topic/'+t.id+'"><b>'+esc(t.title)+'</b></a>'+diffPill(t.difficulty)
++'<span class="pill n">'+t.minutes+' min</span>'+(q?'<span class="pill b">Quiz</span>':'')
++(st==='completed'?'<span class="pill g">Completed</span>':st==='inprogress'?'<span class="pill y">In progress</span>':'<span class="pill n">Not started</span>')+'</div>'
++'<small>'+esc(t.summary)+'</small>'+(st==='completed'?'<br><small>Completed on '+fdate(pp.completedAt)+'</small>':'')+'</div>'
++'<a class="btn sm '+(st?'ghost':'')+'" href="#/topic/'+t.id+'">'+(st==='completed'?'Review':st==='inprogress'?'Continue':'Start')+' &rarr;</a>'
++'</div>';}).join('')
++(DB.settings.certificates&&p.pct===100?'<div class="card" style="border-color:var(--accent)"><h2>Subject Completed</h2><p>You have completed all topics in '+esc(s.title)+'.</p><button class="btn gold" onclick="issueCert(\''+s.id+'\')">Generate Certificate</button></div>':'');
+};
+
+function renderBlocks(blocks){var hi=0;
+return (blocks||[]).map(function(b){var c=b.content||'';
+switch(b.type){
+case 'heading':hi++;return '<h2 id="h'+hi+'">'+esc(c)+'</h2>';
+case 'subheading':return '<h3>'+esc(c)+'</h3>';
+case 'paragraph':return '<p>'+md(c)+'</p>';
+case 'bullets':return '<ul>'+c.split('\n').filter(function(x){return x.trim()}).map(function(x){return '<li>'+md(x)+'</li>'}).join('')+'</ul>';
+case 'numbers':return '<ol>'+c.split('\n').filter(function(x){return x.trim()}).map(function(x){return '<li>'+md(x)+'</li>'}).join('')+'</ol>';
+case 'table':var r=c.split('\n').filter(function(x){return x.trim()});if(!r.length)return '';
+return '<div style="overflow-x:auto"><table><thead><tr>'+r[0].split('|').map(function(x){return '<th>'+md(x.trim())+'</th>'}).join('')+'</tr></thead>'
++'<tbody>'
++r.slice(1).map(function(x){return '<tr>'+x.split('|').map(function(y){return '<td>'+md(y.trim())+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table></div>';
+case 'callout':var tt={important:'Important',tip:'Practical Tip',caution:'Caution',example:'Example',remember:'Remember',key:'Key Takeaway'};
+return '<div class="callout '+(b.variant||'important')+'"><b class="ct">'+esc(b.title||tt[b.variant]||'Note')+'</b>'+md(c)+'</div>';
+case 'formula':return '<div class="formula">'+esc(c).replace(/\n/g,'<br>')+'</div>';
+case 'divider':return '<hr style="border:0;border-top:1px solid var(--line);margin:1.4rem 0">';
+case 'image':return '<figure style="margin:1rem 0"><img src="'+esc(b.url||(b.file&&b.file.data)||'')+'" alt=""><figcaption><small>'+esc(b.title)+'*</small></figcaption></figure>';
+case 'video':var uu=b.url||'',yt=uu.match(/(?:youtu\.be\/|v=)([\w-]{6,})/);
+if(yt)return '<div style="position:relative;padding-top:56%;margin:1rem 0"><iframe src="https://www.youtube.com/embed/'+yt[1]+'" style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:10px" allowfullscreen></iframe></div>';
+var src=uu||(b.file&&b.file.data);return src?'<video controls style="width:100%;border-radius:10px;margin:1rem 0" src="'+esc(src)+'"></video>':'';
+case 'file':var f=b.file;return '<div class="card" style="display:flex;gap:.7rem;align-items:center;justify-content:space-between;margin:1rem 0"><div>&#128206; <b>'+esc(b.title||(f&&f.name)||'Attachment')+'</b><br><small>'+esc((f&&f.name)||b.url||'')+'</small></div>'
++(f?'<a class="btn sm" download="'+esc(f.name)+'" href="'+f.data+'">Download</a>':(b.url?'<a class="btn sm" target="_blank" href="'+esc(b.url)+'">Open</a>':''))+'</div>';
+case 'link':return '<p>&#128279; <a href="'+esc(b.url)+'" target="_blank" rel="noopener">'+esc(b.title||b.url)+'</a></p>';
+case 'topiclink':var t2=topic(b.url);return t2?'<p>Related topic: <a href="#/topic/'+t2.id+'">'+esc(t2.title)+'</a></p>':'';
+case 'code':return '<pre class="formula">'+esc(c)+'</pre>';
+default:return '<p>'+md(c)+'</p>';}}).join('');
+}
+function tocOf(b){var i=0;return (b||[]).filter(function(x){return x.type==='heading'}).map(function(x){i++;return{id:'h'+i,t:x.content}});}
+
+ROUTES['topic']=function(id){
+var t=topic(id);if(!t){$('#view').innerHTML='<div class="card">Topic not found.</div>';return;}
+var u=USER,s=subject(t.subjectId),tp=topicsOf(t.subjectId),i=-1;
+tp.forEach(function(x,k){if(x.id===id)i=k;});
+var prev=tp[i-1],next=tp[i+1],q=quizOf(id),p=pr(u.id,id);
+if(!p){p={userId:u.id,topicId:id,status:'inprogress',completedAt:null,lastViewed:now(),time:0};DB.progress.push(p);}
+p.lastViewed=now();if(p.status!=='completed')p.status='inprogress';save();
+var toc=tocOf(t.blocks),best=q?bestPct(u.id,q.id):null;
+$('#view').innerHTML='<div class="crumb"><a href="#/library">Library</a> / <a href="#/subject/'+s.id+'">'+esc(s.title)+'</a> / Topic '+t.order+'</div>'
++'<div class="grid" style="grid-template-columns:'+(innerWidth<1000?'1fr':'250px 1fr')+'">'
++'<div><div class="toc card"><b style="font-size:12px;text-transform:uppercase;color:var(--muted)">Topic Contents</b><div style="margin-top:.4rem">'
++toc.map(function(x,n){return '<a href="#'+x.id+'" onclick="jump(event,\''+x.id+'\')">'+esc(String(x.t).replace(/^\d+\.\s*/,''))+'</a>';}).join('')
++'<a href="#revision" onclick="jump(event,\'revision\')">Quick Revision</a>'+(q?'<a href="#quizsec" onclick="jump(event,\'quizsec\')">Assessment</a>':'')+'</div>'
++'<hr style="border:0;border-top:1px solid var(--line);margin:.7rem 0"><small><b>Difficulty:</b> '+t.difficulty+'<br><b>Est. time:</b> '+t.minutes+' min<br><b>Status:</b> '+(p.status==='completed'?'Completed':'In progress')+'</small>'
++(USER.role==='admin'?'<a class="btn ghost sm" style="margin-top:.6rem" href="#/admin/topic/'+t.id+'">Edit this topic</a>':'')+'</div></div>'
++'<div><div class="card"><span class="pill b">'+s.icon+' '+esc(s.title)+'</span> '+diffPill(t.difficulty)+' <span class="pill n">'+t.minutes+' min</span>'
++'<h1 style="margin-top:.6rem">'+esc(s.title)+' - '+esc(t.title)+'</h1><h3>Overview</h3><p>'+md(t.summary)+'</p>'
++'<div class="callout key"><b class="ct">Learning Objectives</b>After completing this topic you should be able to:<ul style="margin:.4rem 0 0">'
++(t.objectives||[]).map(function(o){return '<li>'+md(o)+'</li>'}).join('')+'</ul></div></div>'
++'<div class="card content" style="margin-top:1rem">'+renderBlocks(t.blocks)
++'<h2 id="revision">Quick Revision</h2><div class="callout remember"><b class="ct">Remember</b><ul style="margin:.3rem 0 0">'
++(t.revision||[]).map(function(r){return '<li>'+md(r)+'</li>'}).join('')+'</ul></div></div>'
++(q?'<div class="card" id="quizsec" style="margin-top:1rem"><h2>Assessment</h2><p>'+esc(q.title)+' - '+q.questions.length+' questions &middot; pass mark '+(q.passMark||DB.settings.passMark)+'%'
++(best!=null?' &middot; <b>Your best score: '+best+'%</b>':'')+'</p><a class="btn gold" href="#/quiz/'+q.id+'">'+(best!=null?'Retake Quiz':'Start Quiz')+' &rarr;</a></div>':'')
++'<div class="card" style="margin-top:1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">'
++(p.status==='completed'
+?'<div><span class="pill g">Completed</span> <small>on '+fdate(p.completedAt)+'</small></div><button class="btn ghost sm" onclick="unmark(\''+id+'\')">Undo completion</button>'
+:'<label style="display:flex;gap:.6rem;align-items:center;text-transform:none;font-size:15px;margin:0;cursor:pointer"><input type="checkbox" style="width:18px;height:18px" onchange="markDone(\''+id+'\')"> <b>Mark as Completed</b></label><small>Your progress and dashboard update automatically.</small>')
++'</div><div style="display:flex;justify-content:space-between;margin:1rem 0 2rem;gap:.6rem;flex-wrap:wrap">'
++(prev?'<a class="btn ghost" href="#/topic/'+prev.id+'">&larr; '+esc(prev.title)+'</a>':'<span></span>')
++(next?'<a class="btn" href="#/topic/'+next.id+'">'+esc(next.title)+' &rarr;</a>':'<a class="btn ok" href="#/subject/'+s.id+'">Back to subject</a>')
++'</div></div></div>';
+var sec=0;TIMER=setInterval(function(){sec+=15;var pp=pr(u.id,id);if(pp){pp.time=(pp.time||0)+15;if(sec%60===0)save();}},15000);
+};
+
+function jump(e,id){e.preventDefault();var el=document.getElementById(id);if(el)
+window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-70,behavior:'smooth'});}
+function markDone(id){var p=pr(USER.id,id);p.status='completed';p.completedAt=now();
+var t=topic(id),s=subject(t.subjectId);log(USER.id,USER.name+' completed '+s.title+' - '+t.title);save();
+toast('&#127881; Well done! Topic completed. +10 XP');
+if(subjProg(USER.id,s.id).pct===100)toast('You have completed the entire '+s.title+' subject.');route();}
+function unmark(id){if(!confirm('Remove the completion status of this topic?'))return;
+var p=pr(USER.id,id);p.status='inprogress';p.completedAt=null;save();toast('Completion removed.');route();}
+
+ROUTES['progress']=function(){
+var u=USER,ap=allProg(u.id,u),subs=subjectsFor(u),at=attemptsOf(u.id);
+var wk=new Date(Date.now()-6048e5).toISOString(),mo=new Date(Date.now()-2592e6).toISOString();
+var comp=DB.progress.filter(function(p){return p.userId===u.id&&p.status==='completed'});
+var tmin=Math.round(DB.progress.filter(function(p){return p.userId===u.id}).reduce(function(a,p){return a+(p.time||0)},0)/60);
+var la=DB.progress.filter(function(p){return p.userId===u.id}).sort(function(a,b){return (b.lastViewed||'').localeCompare(a.lastViewed||'')})[0];
+$('#view').innerHTML='<h1>My Progress</h1><div class="row" style="align-items:center">'
++'<div class="card" style="display:flex;gap:1.2rem;align-items:center">'+donut(ap.pct,120,'Overall Progress')+'<div><b style="font-size:1.4rem">'+ap.done+' / '+ap.total+'</b><br><small>topics completed</small></div></div>'
++'<div style="flex:1" class="stats">'+stat('This Week',comp.filter(function(p){return p.completedAt>wk}).length,'&#128197;')
++stat('This Month',comp.filter(function(p){return p.completedAt>mo}).length,'&#128198;')+stat('Quizzes Taken',at.length,'&#10067;')
++stat('Avg Quiz Score',(avgQuiz(u.id)==null?'-':avgQuiz(u.id)+'%'),'&#127919;')+stat('Learning Time',tmin+' min','&#9201;')
++stat('Last Activity',fdate(la?la.lastViewed:null),'&#128340;')+'</div></div>'
++'<div class="card" style="margin-top:1.2rem"><h2>Subject-wise Progress</h2><table><thead><tr><th>Subject</th><th>Topics</th><th>Completed</th><th>Pending</th><th style="width:34%">Progress</th></tr></thead><tbody>'
++subs.map(function(s){var p=subjProg(u.id,s.id);return '<tr><td>'+s.icon+' <a href="#/subject/'+s.id+'">'+esc(s.title)+'</a></td><td>'+p.total+'</td><td>'+p.done+'</td><td>'+(p.total-p.done)+'</td><td>'+bar(p.pct)+'<small>'+p.pct+'%</small></td></tr>';}).join('')
++'</tbody><tfoot><tr><th>TOTAL</th><th>'+ap.total+'</th><th>'+ap.done+'</th><th>'+(ap.total-ap.done)+'</th><th>'+ap.pct+'%</th></tr></tfoot></table></div>'
++'<div class="grid" style="grid-template-columns:1fr 1fr;margin-top:1.2rem"><div class="card"><h2>Quiz Performance</h2>'
++(at.length?'<table><thead><tr><th>Quiz</th><th>Score</th><th>%</th><th>Date</th></tr></thead><tbody>'+at.map(function(a){
+var q=DB.quizzes.filter(function(x){return x.id===a.quizId})[0];
+return '<tr><td>'+esc(q?q.title:a.quizId)+'</td><td>'+a.score+'/'+a.total+'</td><td><span class="pill '+(a.pct>=75?'g':a.pct>=DB.settings.passMark?'y':'r')+'">'+a.pct+'%</span></td><td>'+fdate(a.date)+'</td></tr>';}).join('')+'</tbody></table>':'<p><small>No quiz attempts yet.</small></p>')
++'</div><div class="card"><h2>Recently Completed Topics</h2>'+(comp.sort(function(a,b){return b.completedAt.localeCompare(a.completedAt)}).slice(0,12).map(function(p){
+var t=topic(p.topicId);return t?'<div style="padding:.35rem 0;border-bottom:1px dashed var(--line)"><a href="#/topic/'+t.id+'">'+esc(t.title)+'</a><br><small>'+esc(subject(t.subjectId).title)+' &middot; '+fdate(p.completedAt)+'</small></div>':'';}).join('')||'<p><small>Nothing completed yet.</small></p>')+'</div></div>';
+};
+
+ROUTES['quizzes']=function(){
+var u=USER,list=DB.quizzes.filter(function(q){if(q.active===false)return false;var t=topic(q.topicId);
+return t&&subjectsFor(u).some(function(s){return s.id===t.subjectId});});
+$('#view').innerHTML='<h1>Quizzes &amp; Assessments</h1><p style="color:var(--muted)">Assessments are linked to topics. You may reattempt a quiz; the best score is considered.</p>'
++'<div class="card"><table><thead><tr><th>Quiz</th><th>Subject / Topic</th><th>Questions</th><th>Marks</th><th>Best Score</th><th>Attempts</th><th></th></tr></thead><tbody>'
++(list.map(function(q){var t=topic(q.topicId),s=subject(t.subjectId),b=bestPct(u.id,q.id),n=attemptsOf(u.id,q.id).length,
+tot=q.questions.reduce(function(a,x){return a+(x.marks||1)},0);
+return '<tr><td><b>'+esc(q.title)+'</b></td><td>'+s.icon+' '+esc(s.title)+'<br><small>'+esc(t.title)+'</small></td><td>'+q.questions.length+'</td><td>'+tot+'</td>'
++'<td>'+(b==null?'-':'<span class="pill '+(b>=75?'g':b>=(q.passMark||60)?'y':'r')+'">'+b+'%</span>')+'</td><td>'+n+'</td><td><a class="btn sm" href="#/quiz/'+q.id+'">'+(n?'Retake':'Start')+'</a></td></tr>';}).join('')||'<tr><td colspan="7"><small>No quizzes available yet.</small></td></tr>')
++'</tbody></table></div>';
+};
+
+ROUTES['quiz']=function(qid){
+var q=DB.quizzes.filter(function(x){return x.id===qid})[0];
+if(!q){$('#view').innerHTML='<div class="card">Quiz not found.</div>';return;}
+var t=topic(q.topicId),s=t?subject(t.subjectId):null;
+$('#view').innerHTML='<div class="crumb">'+(s?'<a href="#/subject/'+s.id+'">'+esc(s.title)+'</a> / ':'')+(t?'<a href="#/topic/'+t.id+'">'+esc(t.title)+'</a> / ':'')+'Quiz</div>'
++'<div class="card"><h1>'+esc(q.title)+'</h1><p><small>'+q.questions.length+' questions &middot; total '+q.questions.reduce(function(a,x){return a+(x.marks||1)},0)+' marks &middot; pass mark '+(q.passMark||DB.settings.passMark)+'%</small></p>'
++'<form id="qForm" class="card" style="margin-top:1rem">'+q.questions.map(function(x,i){
+return '<div style="padding:1rem 0;border-bottom:1px solid var(--line)"><div style="display:flex;gap:.5rem;justify-content:space-between"><b>Q'+(i+1)+'. '+esc(x.text)+'</b><span class="pill n">'+(x.marks||1)+' mark(s)</span></div><div style="margin-top:.6rem">'
++(x.type==='short'?'<input name="q'+i+'" placeholder="Type your answer">'
+:(x.opts||[]).map(function(o,j){
+return '<label class="qopt"><input type="'+(x.type==='multi'?'checkbox':'radio')+'" name="q'+i+'" value="'+j+'"> <span>'+esc(o)+'</span></label>';}).join(''))
++'</div>'+(x.type==='multi'?'<small>Select all correct options.</small>':'')+'</div>';}).join('')
++'<div style="margin-top:1rem"><button class="btn gold" type="submit">Submit Answers</button> <a class="btn ghost" href="'+(t?'#/topic/'+t.id:'#/quizzes')+'">Cancel</a></div></form>'
++'</div>';
+$('#qForm').onsubmit=function(e){e.preventDefault();gradeQuiz(q);};
+};
+
+function gradeQuiz(q){
+var f=$('#qForm'),score=0,total=0,res=[];
+q.questions.forEach(function(x,i){var m=x.marks||1;total+=m;var given,ok=false,correct;
+if(x.type==='short'){given=(f['q'+i].value||'').trim();
+ok=given.length>0&&String(x.ans).split('|').some(function(a){return given.toLowerCase().indexOf(a.trim().toLowerCase())>-1});
+correct=String(x.ans).split('|')[0];}
+else if(x.type==='multi'){var sel=$$('#qForm [name=q'+i+']:checked').map(function(e){return +e.value}).sort();
+given=sel.map(function(j){return x.opts[j]}).join(', ');var cor=x.ans.slice().sort();
+ok=sel.length===cor.length&&sel.every(function(v,k){return v===cor[k]});
+correct=cor.map(function(j){return x.opts[j]}).join(', ');}
+else{var e2=f.querySelector('[name=q'+i+']:checked');given=e2?x.opts[+e2.value]:'(not answered)';ok=!!e2&&+e2.value===x.ans;correct=x.opts[x.ans];}
+if(ok)score+=m;res.push({q:x,given:given,ok:ok,correct:correct});});
+var p=pct(score,total),pass=p>=(q.passMark||DB.settings.passMark);
+DB.attempts.push({id:uid('at'),userId:USER.id,quizId:q.id,topicId:q.topicId,score:score,total:total,pct:p,date:now()});
+log(USER.id,USER.name+' scored '+p+'% in '+q.title);save();
+$('#view').innerHTML='<div class="card" style="text-align:center;background:linear-gradient(120deg,'+(pass?'#12684f':'#8a2b2b')+',var(--navy));color:#fff">'
++'<h1 style="color:#fff">'+(pass?'Passed!':'Not Passed')+'</h1><div style="font-size:2.6rem;font-weight:800">'+score+' / '+total+'</div><div style="font-size:1.4rem">'+p+'%</div>'
++'<p style="color:#dbe7f1">Correct: '+res.filter(function(r){return r.ok}).length+' &middot; Incorrect: '+res.filter(function(r){return !r.ok}).length+' &middot; Pass mark '+(q.passMark||DB.settings.passMark)+'%</p></div>'
++'<div class="card" style="margin-top:1rem"><h2>Answer Review &amp; Explanations</h2>'+res.map(function(r,i){
+return '<div style="padding:.8rem 0;border-bottom:1px solid var(--line)"><b>Q'+(i+1)+'. '+esc(r.q.text)+'</b>'
++'<div style="margin-top:.3rem"><span class="pill '+(r.ok?'g':'r')+'">'+(r.ok?'Correct':'Incorrect')+'</span> <small>Your answer: '+esc(r.given||'(not answered)')+'</small></div>'
++(!r.ok?'<div><small><b>Correct answer:</b> '+esc(r.correct)+'</small></div>':'')
++(r.q.exp?'<div class="callout '+(r.ok?'tip':'important')+'" style="margin:.5rem 0 0"><b class="ct">Explanation</b>'+md(r.q.exp)+'</div>':'')+'</div>';}).join('')
++'<div style="margin-top:1rem"><a class="btn" href="#/quiz/'+q.id+'">Retake Quiz</a> '+(q.topicId?'<a class="btn ghost" href="#/topic/'+q.topicId+'">Back to Topic</a> ':'')+'<a class="btn ghost" href="#/progress">My Progress</a></div></div>';
+window.scrollTo(0,0);
+}
+
+ROUTES['announcements']=function(){
+$('#view').innerHTML='<h1>Announcements</h1>'+(DB.announcements.map(function(a){
+return '<div class="card" style="margin-bottom:1rem;border-left:4px solid '+(a.priority==='High'?'var(--bad)':'var(--accent)')+'">'
++'<div style="display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap"><h2>'+esc(a.title)+'</h2><div><span class="pill '+(a.priority==='High'?'r':'n')+'">'+a.priority+'</span> <small>'+fdate(a.date)+'</small></div></div>'
++'<div>'+md(a.body)+'</div><small>'+esc(a.by||'Administrator')+'</small></div>';}).join('')||'<div class="card">No announcements.</div>');
+};
+
+ROUTES['resources']=function(){
+var subs=subjectsFor(USER);
+$('#view').innerHTML='<h1>Resources &amp; Downloads</h1><p style="color:var(--muted)">Firm templates, formats, checklists and official references.</p>'
++'<div class="card"><table><thead><tr><th>Resource</th><th>Subject</th><th>Type</th><th>Note</th><th></th></tr></thead><tbody>'
++DB.resources.filter(function(r){return !r.subjectId||subs.some(function(s){return s.id===r.subjectId})}).map(function(r){var s=subject(r.subjectId);
+return '<tr><td><b>'+esc(r.title)+'</b></td><td>'+(s?s.icon+' '+esc(s.title):'General')+'</td><td><span class="pill b">'+esc(r.type)+'</span></td><td><small>'+esc(r.note||'')+'</small></td>'
++'<td>'+(r.allow===false?'<small>Not downloadable</small>':(r.file?'<a class="btn sm" download="'+esc(r.file.name)+'" href="'+r.file.data+'">Download</a>':(r.url?'<a class="btn sm" target="_blank" href="'+esc(r.url)+'">Open</a>':'<small>Pending upload</small>')))+'</td></tr>';}).join('')
++'</tbody></table></div>';
+};
+
+ROUTES['profile']=function(){
+var u=USER,ap=allProg(u.id,u);
+$('#view').innerHTML='<h1>My Profile</h1><div class="grid" style="grid-template-columns:1fr 1fr">'
++'<div class="card"><h2>Details</h2><table><tr><th>Name</th><td>'+esc(u.name)+'</td></tr><tr><th>Email</th><td>'+esc(u.email)+'</td></tr>'
++'<tr><th>Mobile</th><td>'+esc(u.mobile||'-')+'</td></tr><tr><th>Role</th><td>'+esc(u.role)+'</td></tr>'
++'<tr><th>Department</th><td>'+esc(u.dept||'-')+'</td></tr><tr><th>Designation</th><td>'+esc(u.desig||'-')+'</td></tr>'
++'<tr><th>Batch</th><td>'+esc(u.batch||'-')+'</td></tr><tr><th>Joining Date</th><td>'+fdate(u.joining)+'</td></tr>'
++'<tr><th>Status</th><td><span class="pill '+(u.status==='Active'?'g':'r')+'">'+u.status+'</span></td></tr>'
++'<tr><th>Overall Progress</th><td><b>'+ap.pct+'%</b> ('+ap.done+'/'+ap.total+')</td></tr></table>'
++'<h3 style="margin-top:1rem">Update editable fields</h3><label>Mobile</label><input id="pm" value="'+esc(u.mobile||'')+'">'
++'<button class="btn sm" style="margin-top:.6rem" onclick="saveProfile()">Save</button></div>'
++'<div class="card"><h2>Change Password</h2><label>Current password</label><input type="password" id="cp0">'
++'<label>New password</label><input type="password" id="cp1"><label>Confirm new password</label><input type="password" id="cp2">'
++'<button class="btn gold" style="margin-top:.8rem" onclick="changePass()">Update Password</button>'
++'<div class="callout tip" style="margin-top:1rem"><b class="ct">Practical Tip</b>Use a password of at least eight characters with letters, numbers and a symbol. Never share your login.</div></div></div>';
+};
+
+function saveProfile(){USER.mobile=$('#pm').value.trim();save();toast('Profile updated.');}
+function changePass(){var a=$('#cp0').value,b=$('#cp1').value,c=$('#cp2').value;
+if(String(USER.pass)!==a)return toast('Current password is incorrect.');
+if(b.length<6)return toast('New password must be at least six characters.');
+if(b!==c)return toast('Passwords do not match.');
+USER.pass=b;save();toast('Password updated.');$('#cp0').value=$('#cp1').value=$('#cp2').value='';}
+
+ROUTES['certificates']=function(){
+var on=DB.settings.certificates,u=USER,mine=DB.certificates.filter(function(c){return c.userId===u.id});
+$('#view').innerHTML='<h1>Certificates</h1>'
++(on?'':'<div class="callout caution"><b class="ct">Coming Soon</b>Certificate issuance is currently disabled by the administrator. The module is fully built and will be activated once the firm approves the certificate format.</div>')
++'<div class="card"><h2>Eligibility</h2><table><thead><tr><th>Subject</th><th>Progress</th><th>Quiz Average</th><th>Status</th><th></th></tr></thead><tbody>'
++subjectsFor(u).map(function(s){var p=subjProg(u.id,s.id);
+var qs=DB.quizzes.filter(function(q){var t=topic(q.topicId);return t&&t.subjectId===s.id});
+var av=qs.length?Math.round(qs.map(function(q){return bestPct(USER.id,q.id)||0}).reduce(function(a,b){return a+b},0)/qs.length):null;
+var c=mine.filter(function(x){return x.subjectId===s.id})[0];
+return '<tr><td>'+s.icon+' '+esc(s.title)+'</td><td>'+bar(p.pct)+'<small>'+p.pct+'%</small></td><td>'+(av==null?'-':av+'%')+'</td>'
++'<td>'+(p.pct===100?'<span class="pill g">Eligible</span>':'<span class="pill n">'+(100-p.pct)+'% remaining</span>')+'</td>'
++'<td>'+(c?'<a class="btn sm" href="#/cert/'+c.id+'">View Certificate</a>':(on&&p.pct===100?'<button class="btn sm gold" onclick="issueCert(\''+s.id+'\')">Generate</button>':'-'))+'</td></tr>';}).join('')
++'</tbody></table></div>';
+};
+
+function issueCert(sid){
+if(!DB.settings.certificates)return toast('Certificates are disabled by the administrator.');
+var p=subjProg(USER.id,sid);if(p.pct<100)return toast('Complete all topics first.');
+var c=DB.certificates.filter(function(x){return x.userId===USER.id&&x.subjectId===sid})[0];
+if(!c){var qs=DB.quizzes.filter(function(q){var t=topic(q.topicId);return t&&t.subjectId===sid});
+var av=qs.length?Math.round(qs.map(function(q){return bestPct(USER.id,q.id)||0}).reduce(function(a,b){return a+b},0)/qs.length):null;
+c={id:'CERT-'+sid+'-'+Date.now().toString(36).toUpperCase().slice(-6),userId:USER.id,subjectId:sid,date:today(),score:av};
+DB.certificates.push(c);log(USER.id,USER.name+' earned a certificate in '+subject(sid).title);save();}
+go('#/cert/'+c.id);
+}
+
+ROUTES['cert']=function(id){
+var c=DB.certificates.filter(function(x){return x.id===id})[0];
+if(!c){$('#view').innerHTML='<div class="card">Certificate not found.</div>';return;}
+var u=DB.users.filter(function(x){return x.id===c.userId})[0],s=subject(c.subjectId);
+$('#view').innerHTML='<div class="noprint" style="margin-bottom:1rem"><button class="btn gold" onclick="window.print()">Print / Save as PDF</button> <a class="btn ghost" href="#/certificates">Back</a></div>'
++'<div class="cert"><small style="letter-spacing:.3em">'+esc(DB.settings.firmName).toUpperCase()+'</small><h1>CERTIFICATE OF COMPLETION</h1>'
++'<p>This is to certify that</p><div class="nm">'+esc(u?u.name:'')+'</div><p>has successfully completed the professional training module</p>'
++'<h2 style="font-size:1.4rem;color:var(--navy)">'+esc(s?s.title:'').toUpperCase()+'</h2>'
++'<p>under the '+esc(DB.settings.portalName)+' of the firm, demonstrating satisfactory understanding of the prescribed curriculum.</p>'
++'<div style="display:flex;justify-content:space-around;margin-top:2rem;flex-wrap:wrap;gap:1rem">'
++'<div><b>'+fdate(c.date)+'</b><br><small>Date of Completion</small></div><div><b>'+(c.score==null?'-':c.score+'%')+'</b><br><small>Assessment Score</small></div>'
++'<div><b>'+esc(c.id)+'</b><br><small>Certificate ID</small></div></div>'
++'<div style="margin-top:2.4rem"><b>_________________________</b><br><small>Authorised Signatory</small></div></div>';
+};
+
+ROUTES['search']=function(q){
+q=decodeURIComponent(q||'').toLowerCase();var subs=subjectsFor(USER);
+var ts=DB.topics.filter(function(t){return subs.some(function(s){return s.id===t.subjectId})&&
+(t.title+' '+t.summary+' '+JSON.stringify(t.blocks||'')).toLowerCase().indexOf(q)>-1});
+var ss=subs.filter(function(s){return (s.title+s.desc).toLowerCase().indexOf(q)>-1});
+var rs=DB.resources.filter(function(r){return (r.title+' '+(r.note||'')).toLowerCase().indexOf(q)>-1});
+$('#view').innerHTML='<h1>Search results for "'+esc(q)+'"</h1><div class="card"><h2>Topics ('+ts.length+')</h2>'
++(ts.slice(0,40).map(function(t){return '<div style="padding:.4rem 0;border-bottom:1px dashed var(--line)"><a href="#/topic/'+t.id+'"><b>'+esc(t.title)+'</b></a> '+diffPill(t.difficulty)+'<br><small>'+esc(subject(t.subjectId).title)+' - '+esc(t.summary)+'</small></div>';}).join('')||'<small>No topics matched.</small>')
++'</div><div class="grid" style="grid-template-columns:1fr 1fr;margin-top:1rem"><div class="card"><h2>Subjects ('+ss.length+')</h2>'
++(ss.map(function(s){return '<div><a href="#/subject/'+s.id+'">'+s.icon+' '+esc(s.title)+'</a></div>';}).join('')||'<small>None</small>')
++'</div><div class="card"><h2>Resources ('+rs.length+')</h2>'+(rs.map(function(r){return '<div>'+esc(r.title)+'</div>';}).join('')||'<small>None</small>')+'</div></div>';
+};
+
+/* ============ ADMIN ============ */
+ROUTES['admin']=function(){
+var ints=DB.users.filter(function(u){return u.role==='intern'});
+var avgC=ints.length?Math.round(ints.map(function(u){return allProg(u.id,u).pct}).reduce(function(a,b){return a+b},0)/ints.length):0;
+var aq=DB.attempts.length?Math.round(DB.attempts.map(function(a){return a.pct}).reduce(function(a,b){return a+b},0)/DB.attempts.length):0;
+$('#view').innerHTML='<h1>Admin Dashboard</h1><p style="color:var(--muted)">Overview of training operations, content and intern performance.</p>'
++'<div class="stats">'+stat('Total Interns',ints.length,'&#128101;')+stat('Active Interns',ints.filter(function(u){return u.status==='Active'}).length,'&#9989;','var(--ok)')
++stat('Subjects',DB.subjects.length,'&#128218;')+stat('Topics',DB.topics.length,'&#128196;')+stat('Quizzes',DB.quizzes.length,'&#10067;')
++stat('Avg Completion',avgC+'%','&#128200;','var(--info)')+stat('Avg Quiz Score',aq+'%','&#127919;','var(--warn)')+stat('Certificates',DB.certificates.length,'&#127941;')+'</div>'
++'<div class="grid" style="grid-template-columns:1.3fr 1fr;margin-top:1.2rem"><div class="card"><h2>Intern Completion</h2>'
++'<table><thead><tr><th>Intern</th><th>Batch</th><th style="width:40%">Progress</th><th>Quiz Avg</th><th></th></tr></thead><tbody>'
++ints.map(function(u){var p=allProg(u.id,u),a=avgQuiz(u.id);
+return '<tr><td><a href="#/admin/intern/'+u.id+'"><b>'+esc(u.name)+'</b></a><br><small>'+esc(u.email)+'</small></td><td><small>'+esc(u.batch||'-')+'</small></td>'
++'<td>'+bar(p.pct)+'<small>'+p.pct+'% ('+p.done+'/'+p.total+')</small></td><td>'+(a==null?'-':'<span class="pill '+(a>=75?'g':a>=60?'y':'r')+'">'+a+'%</span>')+'</td></tr>';}).join('')
++'</tbody></table><a class="btn ghost sm" style="margin-top:.6rem" href="#/admin/interns">Manage interns &rarr;</a></div>'
++'<div class="card"><h2>Recent Activity</h2>'+(DB.activity.slice(0,14).map(function(a){return '<div style="padding:.35rem 0;border-bottom:1px dashed var(--line)"><small>'+fdt(a.at)+'</small><br>'+esc(a.text)+'</div>';}).join('')||'<small>No activity yet.</small>')+'</div>'
++'<div class="card" style="margin-top:1.2rem"><h2>Subject-wise Average Completion</h2>'
++DB.subjects.sort(function(a,b){return a.order-b.order}).map(function(s){
+var v=ints.length?Math.round(ints.map(function(u){return subjProg(u.id,s.id).pct}).reduce(function(a,b){return a+b},0)/ints.length):0;
+return '<div style="margin-bottom:.7rem"><div style="display:flex;justify-content:space-between"><span>'+s.icon+' '+esc(s.title)+' <small>('+topicsOf(s.id).length+' topics)</small></span><b>'+v+'%</b></div>'+bar(v)+'</div>';}).join('')+'</div>'
++'<div class="card" style="margin-top:1.2rem"><h2>Quick Actions</h2><div class="row"><a class="btn" href="#/admin/content">Add Subject / Topic</a>'
++'<a class="btn" href="#/admin/quizzes">Create Quiz</a><a class="btn" href="#/admin/interns">Add Intern</a>'
++'<a class="btn" href="#/admin/announcements">Post Announcement</a><a class="btn ghost" href="#/admin/settings">Backup Data</a></div></div></div>';
+};
+
+ROUTES['admin/interns']=function(){
+var ints=DB.users.filter(function(u){return u.role!=='admin'});
+$('#view').innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem"><h1>Intern Management</h1>'
++'<div><button class="btn gold" onclick="internForm()">Add Intern</button> <button class="btn ghost" onclick="exportInterns()">Export CSV</button></div>'
++'</div>'
++'<div class="card"><table><thead><tr><th>Intern</th><th>Email</th><th>Batch / Dept</th><th>Joining</th><th style="width:18%">Progress</th><th>Quiz</th><th>Status</th><th>Action</th></tr></thead><tbody>'
++ints.map(function(u){var p=allProg(u.id,u),a=avgQuiz(u.id);
+return '<tr><td><b>'+esc(u.name)+'</b><br><small>'+esc(u.desig||'')+'</small></td><td><small>'+esc(u.email)+'<br>'+esc(u.mobile||'')+'</small></td>'
++'<td><small>'+esc(u.batch||'-')+'<br>'+esc(u.dept||'-')+'</small></td><td><small>'+fdate(u.joining)+'</small></td>'
++'<td>'+bar(p.pct)+'<small>'+p.pct+'%</small></td><td>'+(a==null?'-':a+'%')+'</td>'
++'<td><span class="pill '+(u.status==='Active'?'g':'r')+'">'+u.status+'</span></td>'
++'<td style="white-space:nowrap"><a class="btn sm ghost" href="#/admin/intern/'+u.id+'">View</a> <button class="btn sm ghost" onclick="internForm(\''+u.id+'\')">Edit</button> '
++'<button class="btn sm ghost" onclick="resetPass(\''+u.id+'\')">Reset</button> <button class="btn sm '+(u.status==='Active'?'dngr':'ok')+'" onclick="toggleUser(\''+u.id+'\')">'+(u.status==='Active'?'Deactivate':'Activate')+'</button> '
++'<button class="btn sm dngr" onclick="delUser(\''+u.id+'\')">Delete</button></td></tr>';}).join('')+'</tbody></table></div>';
+};
+
+function internForm(id){
+var u=id?DB.users.filter(function(x){return x.id===id})[0]:{subjects:'all',status:'Active',joining:today()};
+modal('<h2>'+(id?'Edit':'Add')+' Intern</h2><div class="grid" style="grid-template-columns:1fr 1fr">'
++'<div><label>Full Name *</label><input id="f_name" value="'+esc(u.name||'')+'"></div>'
++'<div><label>Email (login) *</label><input id="f_email" value="'+esc(u.email||'')+'"></div>'
++'<div><label>Mobile</label><input id="f_mob" value="'+esc(u.mobile||'')+'"></div>'
++'<div><label>Joining Date</label><input type="date" id="f_join" value="'+esc(u.joining||today())+'"></div>'
++'<div><label>Department</label><input id="f_dept" value="'+esc(u.dept||'')+'"></div>'
++'<div><label>Designation</label><input id="f_desig" value="'+esc(u.desig||'')+'"></div>'
++'<div><label>Batch</label><input id="f_batch" value="'+esc(u.batch||'')+'"></div>'
++'<div><label>Status</label><select id="f_status"><option '+(u.status==='Active'?'selected':'')+'>Active</option><option '+(u.status==='Inactive'?'selected':'')+'>Inactive</option></select></div></div>'
++'<label>'+(id?'Reset password (leave blank to keep unchanged)':'Password *')+'</label><input id="f_pass" placeholder="'+(id?'unchanged':'Intern@123')+'">'
++'<label>Assigned Subjects</label><label style="text-transform:none;font-size:14px"><input type="checkbox" id="f_all" style="width:auto" '+(u.subjects==='all'?'checked':'')
++' onchange="document.getElementById(\'subjBox\').style.display=this.checked?\'none\':\'block\'"> Assign all subjects (recommended)</label>'
++'<div id="subjBox" style="display:'+(u.subjects==='all'?'none':'block')+';max-height:190px;overflow:auto;border:1px solid var(--line);border-radius:8px;padding:.5rem">'
++DB.subjects.map(function(s){return '<label style="text-transform:none;font-size:14px"><input type="checkbox" class="fs" value="'+s.id+'" style="width:auto" '+(Array.isArray(u.subjects)&&u.subjects.indexOf(s.id)>-1?'checked':'')+'> '+s.icon+' '+esc(s.title)+'</label>';}).join('')+'</div>'
++'<div style="margin-top:1rem"><button class="btn gold" onclick="saveIntern(\''+(id||'')+'\')">Save</button> <button class="btn ghost" onclick="closeModal()">Cancel</button></div>');
+}
+
+function saveIntern(id){
+var g=function(x){return $('#f_'+x).value.trim()};
+if(!g('name')||!g('email'))return toast('Name and email are required.');
+if(DB.users.some(function(x){return x.email.toLowerCase()===g('email').toLowerCase()&&x.id!==id}))return toast('This email is already registered.');
+var subs=$('#f_all').checked?'all':$$('.fs:checked').map(function(x){return x.value});
+var u=id?DB.users.filter(function(x){return x.id===id})[0]:null;
+if(!u){if(!g('pass'))return toast('Password is required for a new intern.');
+u={id:uid('U'),role:'intern',created:now(),pass:g('pass')};DB.users.push(u);log('sys','Admin created intern '+g('name'));}
+else if(g('pass'))u.pass=g('pass');
+u.name=g('name');u.email=g('email');u.mobile=g('mob');u.joining=g('join');u.dept=g('dept');u.desig=g('desig');
+u.batch=g('batch');u.status=$('#f_status').value;u.subjects=subs;
+save();closeModal();toast('Intern saved.');buildSidebar();route();}
+function resetPass(id){var u=DB.users.filter(function(x){return x.id===id})[0];
+var p=prompt('Enter a new password for '+u.name+':','Intern@'+Math.floor(1000+Math.random()*9000));
+if(!p)return;u.pass=p;save();alert('Password for '+u.name+' has been reset to:\n\n'+p+'\n\nShare this securely with the intern.');}
+function toggleUser(id){var u=DB.users.filter(function(x){return x.id===id})[0];u.status=u.status==='Active'?'Inactive':'Active';save();route();}
+function delUser(id){var u=DB.users.filter(function(x){return x.id===id})[0];
+if(!confirm('Delete '+u.name+' permanently along with their progress and quiz records?'))return;
+DB.users=DB.users.filter(function(x){return x.id!==id});DB.progress=DB.progress.filter(function(x){return x.userId!==id});
+DB.attempts=DB.attempts.filter(function(x){return x.userId!==id});save();toast('Intern deleted.');route();}
+function exportInterns(){var rows=[['Name','Email','Mobile','Joining','Dept','Designation','Batch','Status','Done','Total','Progress %','Quiz Avg %']];
+DB.users.filter(function(u){return u.role==='intern'}).forEach(function(u){var p=allProg(u.id,u);
+rows.push([u.name,u.email,u.mobile,u.joining,u.dept,u.desig,u.batch,u.status,p.done,p.total,p.pct,avgQuiz(u.id)||'']);});
+csvOut(rows,'interns.csv');}
+
+ROUTES['admin/intern']=function(id){
+var u=DB.users.filter(function(x){return x.id===id})[0];
+if(!u){$('#view').innerHTML='<div class="card">Intern not found.</div>';return;}
+var p=allProg(u.id,u),at=attemptsOf(u.id);
+$('#view').innerHTML='<div class="crumb"><a href="#/admin/interns">Intern Management</a> / '+esc(u.name)+'</div>'
++'<div class="row" style="justify-content:space-between;align-items:center"><h1>'+esc(u.name)+'</h1>'
++'<div><button class="btn ghost" onclick="internForm(\''+u.id+'\')">Edit</button> <button class="btn ghost" onclick="resetPass(\''+u.id+'\')">Reset Password</button></div></div>'
++'<div class="grid" style="grid-template-columns:1fr 1fr"><div class="card"><h2>Profile</h2><table>'
++'<tr><th>Email</th><td>'+esc(u.email)+'</td></tr><tr><th>Mobile</th><td>'+esc(u.mobile||'-')+'</td></tr>'
++'<tr><th>Joining</th><td>'+fdate(u.joining)+'</td></tr><tr><th>Department</th><td>'+esc(u.dept||'-')+'</td></tr>'
++'<tr><th>Designation</th><td>'+esc(u.desig||'-')+'</td></tr><tr><th>Batch</th><td>'+esc(u.batch||'-')+'</td></tr>'
++'<tr><th>Status</th><td><span class="pill '+(u.status==='Active'?'g':'r')+'">'+u.status+'</span></td></tr>'
++'<tr><th>Assigned</th><td>'+(u.subjects==='all'?'All subjects':(u.subjects||[]).map(function(s){return esc((subject(s)||{}).title||s)}).join(', ')||'-')+'</td></tr>'
++'<tr><th>Last Login</th><td>'+fdt(u.lastLogin)+'</td></tr></table></div>'
++'<div class="card" style="text-align:center"><h2>Overall Progress</h2>'+donut(p.pct,150)
++'<p><b>'+p.done+'</b> of <b>'+p.total+'</b> topics completed<br><small>Quiz average: '+(avgQuiz(u.id)==null?'-':avgQuiz(u.id)+'%')+'</small></p></div>'
++'</div>'
++'<div class="card" style="margin-top:1rem"><h2>Subject-wise Progress</h2><table><thead><tr><th>Subject</th><th>Topics</th><th>Completed</th><th style="width:40%">Progress</th></tr></thead><tbody>'
++subjectsFor(u).map(function(s){var x=subjProg(u.id,s.id);return '<tr><td>'+s.icon+' '+esc(s.title)+'</td><td>'+x.total+'</td><td>'+x.done+'</td>'
++'<td>'+bar(x.pct)+'<small>'+x.pct+'%</small></td></tr>';}).join('')
++'</tbody></table></div><div class="grid" style="grid-template-columns:1fr 1fr;margin-top:1rem"><div class="card"><h2>Quiz Attempts</h2>'
++(at.length?'<table><thead><tr><th>Quiz</th><th>Score</th><th>%</th><th>Date</th></tr></thead><tbody>'+at.map(function(a){
+var q=DB.quizzes.filter(function(x){return x.id===a.quizId})[0];
+return '<tr><td>'+esc(q?q.title:a.quizId)+'</td><td>'+a.score+'/'+a.total+'</td><td>'+a.pct+'%</td><td>'+fdate(a.date)+'</td></tr>';}).join('')+'</tbody>'
++'</table>':'<small>No attempts.</small>')
++'</div><div class="card"><h2>Completed Topics</h2>'+(DB.progress.filter(function(x){return x.userId===u.id&&x.status==='completed'})
+.sort(function(a,b){return b.completedAt.localeCompare(a.completedAt)}).slice(0,20).map(function(x){var t=topic(x.topicId);
+return t?'<div style="padding:.3rem 0;border-bottom:1px dashed var(--line)"><small>'+fdate(x.completedAt)+' - '+esc(subject(t.subjectId).title)+' / '+esc(t.title)+'</small></div>':'';}).join('')||'<small>None.</small>')+'</div></div>';
+};
+
+ROUTES['admin/reports']=function(){
+var ints=DB.users.filter(function(u){return u.role==='intern'}),subs=DB.subjects.sort(function(a,b){return a.order-b.order});
+$('#view').innerHTML='<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem"><h1>Progress &amp; Performance Reports</h1>'
++'<div><button class="btn ghost" onclick="exportMatrix()">Export Matrix CSV</button> <button class="btn ghost" onclick="exportQuizCsv()">Export Quiz CSV</button></div></div>'
++'<div class="card"><h2>Completion Matrix (%)</h2><div style="overflow-x:auto"><table><thead><tr><th>Intern</th>'
++subs.map(function(s){return '<th title="'+esc(s.title)+'">'+esc(s.code)+'</th>';}).join('')+'<th>Overall</th></tr></thead><tbody>'
++ints.map(function(u){var o=allProg(u.id,u);return '<tr><td><a href="#/admin/intern/'+u.id+'">'+esc(u.name)+'</a></td>'
++subs.map(function(s){var v=subjProg(u.id,s.id).pct;return '<td style="background:rgba(31,157,99,'+(v/220)+')">'+v+'%</td>';}).join('')+'<td>'
++'<b>'+o.pct+'%</b></td></tr>';}).join('')
++'<tr><th>Average</th>'+subs.map(function(s){var v=ints.length?Math.round(ints.map(function(u){return subjProg(u.id,s.id).pct}).reduce(function(a,b){return a+b},0)/ints.length):0;return '<th>'+v+'%</th>';}).join('')
++'<th>'+(ints.length?Math.round(ints.map(function(u){return allProg(u.id,u).pct}).reduce(function(a,b){return a+b},0)/ints.length):0)+'%</th></tr></tbody>'
++'</table></div><small>Column headings are subject codes.</small></div>'
++'<div class="card" style="margin-top:1rem"><h2>Quiz Performance</h2><table><thead><tr><th>Quiz</th><th>Subject</th><th>Attempts</th><th>Average</th><th>Highest</th><th>Lowest</th><th>Pass rate</th></tr></thead><tbody>'
++DB.quizzes.map(function(q){var a=DB.attempts.filter(function(x){return x.quizId===q.id}),t=topic(q.topicId);
+var av=a.length?Math.round(a.map(function(x){return x.pct}).reduce(function(p,c){return p+c},0)/a.length):0;
+var prr=a.length?Math.round(a.filter(function(x){return x.pct>=(q.passMark||60)}).length*100/a.length):0;
+return '<tr><td>'+esc(q.title)+'</td><td>'+(t?esc(subject(t.subjectId).title):'-')+'</td><td>'+a.length+'</td><td><b>'+av+'%</b></td>'
++'<td>'+(a.length?Math.max.apply(null,a.map(function(x){return x.pct}))+'%':'-')+'</td><td>'+(a.length?Math.min.apply(null,a.map(function(x){return x.pct}))+'%':'-')+'</td><td>'+prr+'%</td></tr>';}).join('')
++'</tbody></table></div><div class="card" style="margin-top:1rem"><h2>All Quiz Attempts</h2><table><thead><tr><th>Date</th><th>Intern</th><th>Quiz</th><th>Score</th><th>%</th><th>Result</th></tr></thead><tbody>'
++DB.attempts.sort(function(a,b){return b.date.localeCompare(a.date)}).slice(0,80).map(function(a){
+var u=DB.users.filter(function(x){return x.id===a.userId})[0],q=DB.quizzes.filter(function(x){return x.id===a.quizId})[0],pm=q?(q.passMark||60):60;
+return '<tr><td>'+fdt(a.date)+'</td><td>'+esc(u?u.name:'-')+'</td><td>'+esc(q?q.title:a.quizId)+'</td><td>'+a.score+'/'+a.total+'</td><td>'+a.pct+'%</td>'
++'<td><span class="pill '+(a.pct>=pm?'g':'r')+'">'+(a.pct>=pm?'Pass':'Fail')+'</span></td></tr>';}).join('')+'</tbody></table></div>';
+};
+
+function exportMatrix(){var subs=DB.subjects,rows=[['Intern','Email'].concat(subs.map(function(s){return s.title})).concat(['Overall %'])];
+DB.users.filter(function(u){return u.role==='intern'}).forEach(function(u){
+rows.push([u.name,u.email].concat(subs.map(function(s){return subjProg(u.id,s.id).pct})).concat([allProg(u.id,u).pct]));});
+csvOut(rows,'completion-matrix.csv');}
+
+function exportQuizCsv(){var rows=[['Date','Intern','Quiz','Score','Total','Percent']];
+DB.attempts.forEach(function(a){var u=DB.users.filter(function(x){return x.id===a.userId})[0],q=DB.quizzes.filter(function(x){return x.id===a.quizId})[0];
+rows.push([a.date,u?u.name:'',q?q.title:'',a.score,a.total,a.pct]);});csvOut(rows,'quiz-scores.csv');}
+
+ROUTES['admin/content']=function(){
+$('#view').innerHTML='<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem">'
++'<div><h1>Content Management</h1><p style="color:var(--muted);margin:0">Add unlimited subjects and topics. No coding required.</p></div>'
++'<div><button class="btn gold" onclick="subjForm()">Add Subject</button> <button class="btn" onclick="go(\'#/admin/topic/new\')">Add Topic</button></div>'
++'</div>'
++DB.subjects.sort(function(a,b){return a.order-b.order}).map(function(s){var tp=topicsOf(s.id);
+return '<div class="card" style="margin-top:1rem;border-left:5px solid '+s.color+'"><div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap;align-items:center">'
++'<div><h2 style="margin:0">'+s.icon+' '+esc(s.title)+' <small>('+s.code+')</small> '+(s.active===false?'<span class="pill r">Hidden</span>':'')+'</h2>'
++'<small>'+esc(s.desc)+'</small></div>'
++'<div style="white-space:nowrap"><span class="pill n">'+tp.length+' topics</span> <button class="btn sm ghost" onclick="subjForm(\''+s.id+'\')">Edit</button> '
++'<a class="btn sm" href="#/admin/topic/new?s='+s.id+'">Add Topic</a> <button class="btn sm dngr" onclick="delSubject(\''+s.id+'\')">Delete</button></div>'
++'</div>'
++'<table style="margin-top:.6rem"><thead><tr><th>#</th><th>Topic</th><th>Difficulty</th><th>Time</th><th>Blocks</th><th>Quiz</th><th>Status</th><th></th></tr></thead><tbody>'
++(tp.map(function(t){return '<tr><td>'+t.order+'</td><td><b>'+esc(t.title)+'</b><br><small>'+esc(t.summary)+'</small></td>'
++'<td>'+diffPill(t.difficulty)+'</td>'
++'<td>'+t.minutes+'m</td><td>'+(t.blocks||[]).length+'</td><td>'+(quizOf(t.id)?'<span class="pill b">Yes</span>':'<button class="btn sm ghost" onclick="newQuizFor(\''+t.id+'\')">Create</button>')+'</td>'
++'<td>'+(t.published===false?'<span class="pill r">Draft</span>':'<span class="pill g">Live</span>')+'</td>'
++'<td style="white-space:nowrap"><a class="btn sm ghost" href="#/topic/'+t.id+'">View</a> <a class="btn sm" href="#/admin/topic/'+t.id+'">Edit</a> '
++'<button class="btn sm ghost" onclick="moveTopic(\''+t.id+'\',-1)">&uarr;</button> <button class="btn sm ghost" onclick="moveTopic(\''+t.id+'\',1)">&darr;</button> '
++'<button class="btn sm dngr" onclick="delTopic(\''+t.id+'\')">Delete</button></td></tr>';}).join('')||'<tr><td colspan="8"><small>No topics yet.</small></td></tr>')
++'</tbody></table></div>';}).join('');
+};
+
+function subjForm(id){
+var s=id?subject(id):{icon:'\u{1F4D8}',color:'#1b4266',active:true,order:DB.subjects.length+1};
+modal('<h2>'+(id?'Edit':'Add')+' Subject</h2><div class="grid" style="grid-template-columns:1fr 1fr">'
++'<div><label>Subject Title *</label><input id="s_title" value="'+esc(s.title||'')+'"></div>'
++'<div><label>Short Code *</label><input id="s_code" value="'+esc(s.code||'')+'" placeholder="e.g. GST" '+(id?'disabled':'')+'></div>'
++'<div><label>Icon (emoji)</label><input id="s_icon" value="'+esc(s.icon||'')+'"></div>'
++'<div><label>Theme Colour</label><input type="color" id="s_color" value="'+esc(s.color||'#1b4266')+'"></div>'
++'<div><label>Display Order</label><input type="number" id="s_order" value="'+(s.order||1)+'"></div>'
++'<div><label>Visibility</label><select id="s_act"><option value="1" '+(s.active!==false?'selected':'')+'>Visible</option><option value="0" '+(s.active===false?'selected':'')+'>Hidden</option></select></div></div>'
++'<label>Description</label><textarea id="s_desc">'+esc(s.desc||'')+'</textarea>'
++'<div style="margin-top:1rem"><button class="btn gold" onclick="saveSubj(\''+(id||'')+'\')">Save</button> <button class="btn ghost" onclick="closeModal()">Cancel</button></div>');
+}
+
+function saveSubj(id){
+var t=$('#s_title').value.trim(),c=$('#s_code').value.trim().toUpperCase();
+if(!t||(!id&&!c))return toast('Title and code are required.');
+if(!id&&DB.subjects.some(function(x){return x.id===c}))return toast('That code already exists.');
+var s=id?subject(id):{id:c,code:c};if(!id)DB.subjects.push(s);
+s.title=t;s.icon=$('#s_icon').value||'\u{1F4D8}';s.color=$('#s_color').value;s.order=+$('#s_order').value||1;
+s.active=$('#s_act').value==='1';s.desc=$('#s_desc').value;
+save();closeModal();toast('Subject saved.');buildSidebar();route();
+}
+
+function delSubject(id){var n=topicsOf(id).length;
+if(!confirm('Delete subject "'+subject(id).title+'" and its '+n+' topics? This cannot be undone.'))return;
+var tids=DB.topics.filter(function(t){return t.subjectId===id}).map(function(t){return t.id});
+DB.subjects=DB.subjects.filter(function(s){return s.id!==id});
+DB.topics=DB.topics.filter(function(t){return t.subjectId!==id});
+DB.quizzes=DB.quizzes.filter(function(q){return tids.indexOf(q.topicId)<0});
+DB.progress=DB.progress.filter(function(p){return tids.indexOf(p.topicId)<0});
+save();buildSidebar();toast('Subject deleted.');route();}
+
+function delTopic(id){if(!confirm('Delete topic "'+topic(id).title+'"?'))return;
+DB.topics=DB.topics.filter(function(t){return t.id!==id});DB.quizzes=DB.quizzes.filter(function(q){return q.topicId!==id});
+DB.progress=DB.progress.filter(function(p){return p.topicId!==id});save();toast('Topic deleted.');route();}
+
+function moveTopic(id,d){var t=topic(id),list=topicsOf(t.subjectId),i=-1;list.forEach(function(x,k){if(x.id===id)i=k;});
+var j=i+d;if(j<0||j>=list.length)return;var o=list[i].order;list[i].order=list[j].order;list[j].order=o;save();route();}
+
+var BLOCKTYPES=[['heading','Heading (appears in contents)'],['subheading','Sub-heading'],['paragraph','Paragraph'],
+['bullets','Bullet points (one per line)'],['numbers','Numbered list (one per line)'],['table','Table (Header|Header then rows)'],
+['callout','Callout box'],['formula','Formula / computation box'],['image','Image'],['video','Video (YouTube or upload)'],
+['file','Downloadable file (PDF/Excel/Word)'],['link','External link'],['topiclink','Link to another topic'],['code','Code / entry block'],['divider','Divider line']];
+
+ROUTES['admin/topic']=function(id){
+var qs=location.hash.split('?')[1]||'',pre=(qs.match(/s=([^&]+)/)||[])[1],t;
+if(!id||id==='new'||id.indexOf('new')===0){t={id:'',subjectId:pre||DB.subjects[0].id,title:'',summary:'',difficulty:'Beginner',minutes:30,
+objectives:[],blocks:[B.h('1. Introduction'),B.p('')],revision:[],published:true,order:0};}
+else{t=topic(id);if(!t){$('#view').innerHTML='<div class="card">Topic not found.</div>';return;}}
+EDIT=JSON.parse(JSON.stringify(t));EDIT._new=(!id||id.indexOf('new')===0);
+$('#view').innerHTML='<div class="crumb"><a href="#/admin/content">Content Management</a> / '+(EDIT._new?'New Topic':esc(t.title))+'</div>'
++'<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem"><h1>'+(EDIT._new?'Add Topic':'Edit Topic')+'</h1>'
++'<div><button class="btn gold" onclick="saveTopic()">Save Topic</button> '+(EDIT._new?'':'<a class="btn ghost" href="#/topic/'+t.id+'">Preview</a>')+'</div></div>'
++'<div class="card"><h2>Topic Details</h2><div class="grid" style="grid-template-columns:1fr 1fr">'
++'<div><label>Subject *</label><select id="t_subj">'+DB.subjects.map(function(s){return '<option value="'+s.id+'" '+(s.id===EDIT.subjectId?'selected':'')+'>'+esc(s.title)+'</option>';}).join('')+'</select></div>'
++'<div><label>Topic Title *</label><input id="t_title" value="'+esc(EDIT.title)+'"></div>'
++'<div><label>Difficulty</label><select id="t_diff">'+['Beginner','Intermediate','Advanced'].map(function(d){return '<option '+(d===EDIT.difficulty?'selected':'')+'>'+d+'</option>';}).join('')+'</select></div>'
++'<div><label>Estimated minutes</label><input type="number" id="t_min" value="'+EDIT.minutes+'"></div>'
++'<div><label>Display order (0 = last)</label><input type="number" id="t_ord" value="'+(EDIT.order||0)+'"></div>'
++'<div><label>Status</label><select id="t_pub"><option value="1" '+(EDIT.published!==false?'selected':'')+'>Published</option><option value="0" '+(EDIT.published===false?'selected':'')+'>Draft</option></select></div></div>'
++'<label>Overview / short description *</label><textarea id="t_sum">'+esc(EDIT.summary)+'</textarea>'
++'<label>Learning objectives (one per line)</label><textarea id="t_obj">'+esc((EDIT.objectives||[]).join('\n'))+'</textarea>'
++'<label>Quick revision points (one per line)</label><textarea id="t_rev">'+esc((EDIT.revision||[]).join('\n'))+'</textarea></div>'
++'<div class="card" style="margin-top:1rem"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem"><h2>Training Material Blocks</h2>'
++'<div><select id="newBlk" style="width:auto;display:inline-block">'+BLOCKTYPES.map(function(b){return '<option value="'+b[0]+'">+ '+b[1]+'</option>';}).join('')+'</select> '
++'<button class="btn sm gold" onclick="blkAdd()">Add block</button></div></div>'
++'<p><small>Formatting inside text: **bold**, `code`, [label](https://link). Click outside a box to capture the text, then press <b>Save Topic</b>.</small></p><div id="blks"></div>'
++'</div>';
+renderBlks();
+};
+
+function renderBlks(){
+$('#blks').innerHTML=EDIT.blocks.map(function(b,i){
+var isCall=b.type==='callout',hasUrl=['image','video','link','topiclink','file'].indexOf(b.type)>-1,
+hasFile=['image','video','file'].indexOf(b.type)>-1,noText=['divider','image','file','link','topiclink'].indexOf(b.type)>-1;
+return '<div class="blk"><div class="hd"><b style="min-width:26px">'+(i+1)+'.</b>'
++'<select style="width:auto" onchange="blkSet('+i+',\'type\',this.value,1)">'+BLOCKTYPES.map(function(x){return '<option value="'+x[0]+'" '+(x[0]===b.type?'selected':'')+'>'+x[1]+'</option>';}).join('')+'</select>'
++(isCall?'<select style="width:auto" onchange="blkSet('+i+',\'variant\',this.value,1)">'+['important','tip','caution','example','remember','key'].map(function(v){return '<option value="'+v+'" '+(v===b.variant?'selected':'')+'>'+v.toUpperCase()+'</option>';}).join('')+'</select>'
++'<input style="width:170px" placeholder="Box title (optional)" value="'+esc(b.title||'')+'" onchange="blkSet('+i+',\'title\',this.value)">':'')
++(b.type==='topiclink'?'<select style="width:auto" onchange="blkSet('+i+',\'url\',this.value)"><option value="">-- choose topic --</option>'
++DB.topics.map(function(t){return '<option value="'+t.id+'" '+(t.id===b.url?'selected':'')+'>'+esc((subject(t.subjectId)||{}).title+' / '+t.title)+'</option>';}).join('')+'</select>':'')
++((hasUrl&&b.type!=='topiclink')?'<input style="width:230px" placeholder="URL (or upload)" value="'+esc(b.url||'')+'" onchange="blkSet('+i+',\'url\',this.value)">':'')
++('<input style="width:170px" placeholder="Caption / title" value="'+esc(b.title||'')+'" onchange="blkSet('+i+',\'title\',this.value)">')
++(hasFile?'<input type="file" style="width:220px" onchange="blkFile('+i+',this)">':'')
++'<span style="flex:1"></span><button class="btn sm ghost" onclick="blkMove('+i+',-1)">&uarr;</button><button class="btn sm ghost" onclick="blkMove('+i+',1)">&darr;</button>'
++'<button class="btn sm dngr" onclick="blkDel('+i+')">Delete</button></div>'
++(noText?(b.file?'<small>Attached: '+esc(b.file.name)+'</small>':'<small>No text needed for this block type.</small>')
+:'<textarea onchange="blkSet('+i+',\'content\',this.value)" placeholder="'+(b.type==='table'?'Header 1 | Header 2\nEnter content...':'')+'">'+esc(b.content||'')+'</textarea>')
++'</div>';}).join('')+'<p><small>'+EDIT.blocks.length+' block(s).</small></p>';
+}
+
+function blkAdd(){var t=$('#newBlk').value,b={type:t,content:''};if(t==='callout')b.variant='important';
+if(t==='table')b.content='Particulars | Amount\nItem A | 1,000';EDIT.blocks.push(b);renderBlks();}
+function blkSet(i,f,v,re){EDIT.blocks[i][f]=v;if(re)renderBlks();}
+function blkDel(i){if(!confirm('Delete this block?'))return;EDIT.blocks.splice(i,1);renderBlks();}
+function blkMove(i,d){var j=i+d;if(j<0||j>=EDIT.blocks.length)return;var x=EDIT.blocks[i];EDIT.blocks[i]=EDIT.blocks[j];EDIT.blocks[j]=x;renderBlks();}
+function blkFile(i,inp){var f=inp.files[0];if(!f)return;
+if(f.size>4194304&&!confirm('This file is '+Math.round(f.size/1048576)+' MB. Large files may exceed browser storage. Continue?'))return;
+var r=new FileReader();r.onload=function(){EDIT.blocks[i].file={name:f.name,mime:f.type,data:r.result};
+if(!EDIT.blocks[i].title)EDIT.blocks[i].title=f.name;renderBlks();toast('File attached: '+f.name);};r.readAsDataURL(f);}
+
+function saveTopic(){
+var g=function(x){return $('#t_'+x).value};
+if(!g('title').trim())return toast('Topic title is required.');
+var sid=g('subj'),t;
+if(EDIT._new){var n=1;while(DB.topics.some(function(x){return x.id===sid+'-'+String(n).padStart(2,'0')}))n++;
+t={id:sid+'-'+String(n).padStart(2,'0')};DB.topics.push(t);}
+else t=topic(EDIT.id);
+t.subjectId=sid;t.title=g('title').trim();t.summary=g('sum');t.difficulty=g('diff');t.minutes=+g('min')||20;
+t.published=g('pub')==='1';t.objectives=g('obj').split('\n').filter(function(x){return x.trim()});
+t.revision=g('rev').split('\n').filter(function(x){return x.trim()});t.blocks=EDIT.blocks;t.updated=now();
+t.order=+g('ord')||(topicsOf(sid).filter(function(x){return x.id!==t.id}).length+1);
+if(!save())alert('Could not store data permanently, but the change is active for this session. Use Settings to export a backup.');
+log('sys','Content updated: '+t.title);toast('Topic saved.');buildSidebar();go('#/admin/content');
+}
+
+ROUTES['admin/quizzes']=function(){
+$('#view').innerHTML='<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem"><h1>Quizzes &amp; Questions</h1>'
++'<button class="btn gold" onclick="newQuizFor()">Create Quiz</button></div>'
++'<div class="card"><table><thead><tr><th>Quiz</th><th>Topic</th><th>Questions</th><th>Marks</th><th>Pass</th><th>Attempts</th><th>Avg</th><th>Status</th><th></th></tr></thead><tbody>'
++DB.quizzes.map(function(q){var t=topic(q.topicId),a=DB.attempts.filter(function(x){return x.quizId===q.id});
+return '<tr><td><b>'+esc(q.title)+'</b></td><td>'+(t?esc(subject(t.subjectId).title)+' / '+esc(t.title):'-')+'</td><td>'+q.questions.length+'</td>'
++'<td>'+q.questions.reduce(function(x,y){return x+(y.marks||1)},0)+'</td><td>'+(q.passMark||60)+'%</td><td>'+a.length+'</td>'
++'<td>'+(a.length?Math.round(a.map(function(x){return x.pct}).reduce(function(p,c){return p+c},0)/a.length)+'%':'-')+'</td>'
++'<td><span class="pill '+(q.active!==false?'g':'r')+'">'+(q.active!==false?'Active':'Inactive')+'</span></td>'
++'<td style="white-space:nowrap"><a class="btn sm" href="#/admin/quiz/'+q.id+'">Edit</a> <a class="btn sm ghost" href="#/quiz/'+q.id+'">Preview</a> '
++'<button class="btn sm dngr" onclick="delQuiz(\''+q.id+'\')">Delete</button></td></tr>';}).join('')+'</tbody></table></div>';
+};
+
+function newQuizFor(tid){
+modal('<h2>Create Quiz</h2><label>Attach to topic</label><select id="q_t">'
++DB.topics.map(function(t){return '<option value="'+t.id+'" '+(t.id===tid?'selected':'')+'>'+esc((subject(t.subjectId)||{}).title+' / '+t.title)+'</option>';}).join('')+'</select>'
++'<label>Quiz title</label><input id="q_ti" value="Assessment"><label>Pass mark %</label><input type="number" id="q_pm" value="60">'
++'<div style="margin-top:1rem"><button class="btn gold" onclick="createQuiz()">Create and Add Questions</button> <button class="btn ghost" onclick="closeModal()">Cancel</button></div>');
+}
+
+function createQuiz(){var tid=$('#q_t').value,t=topic(tid);
+var q={id:uid('Q'),topicId:tid,title:$('#q_ti').value||(t.title+' - Assessment'),passMark:+$('#q_pm').value||60,active:true,questions:[]};
+DB.quizzes.push(q);save();closeModal();go('#/admin/quiz/'+q.id);}
+
+function delQuiz(id){if(!confirm('Delete this quiz and its attempt records?'))return;
+DB.quizzes=DB.quizzes.filter(function(q){return q.id!==id});DB.attempts=DB.attempts.filter(function(a){return a.quizId!==id});save();route();}
+
+ROUTES['admin/quiz']=function(id){
+var q=DB.quizzes.filter(function(x){return x.id===id})[0];
+if(!q){$('#view').innerHTML='<div class="card">Quiz not found.</div>';return;}
+$('#view').innerHTML='<div class="crumb"><a href="#/admin/quizzes">Quizzes</a> / '+esc(q.title)+'</div>'
++'<div class="card"><div class="grid" style="grid-template-columns:2fr 1fr 1fr 1fr">'
++'<div><label>Quiz Title</label><input id="qe_t" value="'+esc(q.title)+'"></div>'
++'<div><label>Topic</label><select id="qe_tp">'+DB.topics.map(function(x){return '<option value="'+x.id+'" '+(x.id===q.topicId?'selected':'')+'>'+esc((subject(x.subjectId)||{}).title+' / '+x.title)+'</option>';}).join('')+'</select></div>'
++'<div><label>Pass %</label><input type="number" id="qe_pm" value="'+(q.passMark||60)+'"></div>'
++'<div><label>Status</label><select id="qe_ac"><option value="1" '+(q.active!==false?'selected':'')+'>Active</option><option value="0" '+(q.active===false?'selected':'')+'>Inactive</option></select></div></div>'
++'<button class="btn gold" style="margin-top:.8rem" onclick="saveQuizMeta(\''+q.id+'\')">Save Quiz Settings</button></div>'
++'<div class="card" style="margin-top:1rem"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem"><h2>Questions ('+q.questions.length+')</h2>'
++'<button class="btn" onclick="qForm(\''+q.id+'\')">Add Question</button></div>'
++(q.questions.map(function(x,i){return '<div class="blk"><div class="hd"><b>Q'+(i+1)+'.</b><span class="pill b">'+x.type+'</span><span class="pill n">'+(x.marks||1)+' mark(s)</span>'
++'<span style="flex:1"></span><button class="btn sm ghost" onclick="qForm(\''+q.id+'\','+i+')">Edit</button> <button class="btn sm dngr" onclick="qDel(\''+q.id+'\','+i+')">Delete</button></div>'
++'<div><b>'+esc(x.text)+'</b></div>'
++(x.type==='short'?'<small>Accepted answers: '+esc(x.ans)+'</small>':'<ol style="margin:.3rem 0 0">'+(x.opts||[]).map(function(o,j){
+var c=(x.type==='multi'?x.ans.indexOf(j)>-1:x.ans===j);return '<li>'+esc(o)+(c?' <span class="pill g">correct</span>':'')+'</li>';}).join('')+'</ol>')
++(x.exp?'<small><b>Explanation:</b> '+esc(x.exp)+'</small>':'')+'</div>';}).join('')||'<p><small>No questions yet.</small></p>')+'</div>';
+};
+
+function saveQuizMeta(id){var q=DB.quizzes.filter(function(x){return x.id===id})[0];
+q.title=$('#qe_t').value;q.topicId=$('#qe_tp').value;q.passMark=+$('#qe_pm').value||60;q.active=$('#qe_ac').value==='1';
+save();toast('Quiz settings saved.');route();}
+
+var _qx=null;
+function qForm(qid,i){
+var q=DB.quizzes.filter(function(x){return x.id===qid})[0];
+var x=(i==null||i===undefined)?{type:'mcq',opts:['','','',''],ans:0,marks:1}:q.questions[i];_qx=x;
+modal('<h2>'+(i==null?'Add':'Edit')+' Question</h2><div class="grid" style="grid-template-columns:1fr 1fr">'
++'<div><label>Type</label><select id="x_type" onchange="qTypeSwitch()">'
++'<option value="mcq" '+(x.type==='mcq'?'selected':'')+'>Multiple choice (one answer)</option>'
++'<option value="multi" '+(x.type==='multi'?'selected':'')+'>Multiple answers</option>'
++'<option value="tf" '+(x.type==='tf'?'selected':'')+'>True / False</option>'
++'<option value="short" '+(x.type==='short'?'selected':'')+'>Short answer</option></select></div>'
++'<div><label>Marks</label><input type="number" id="x_marks" value="'+(x.marks||1)+'"></div></div>'
++'<label>Question *</label><textarea id="x_text">'+esc(x.text||'')+'</textarea><div id="optBox"></div>'
++'<label>Explanation (shown after submission)</label><textarea id="x_exp">'+esc(x.exp||'')+'</textarea>'
++'<div style="margin-top:1rem"><button class="btn gold" onclick="qSave(\''+qid+'\','+(i==null?'null':i)+')">Save Question</button> <button class="btn ghost" onclick="closeModal()">Cancel</button></div>');
+qTypeSwitch();
+}
+
+function qTypeSwitch(){
+var t=$('#x_type').value,x=_qx;
+if(t==='short'){$('#optBox').innerHTML='<label>Accepted answers (separate alternatives with |)</label><input id="x_ans" value="'+esc(x.type==='short'?x.ans:'')+'">';return;}
+var opts=t==='tf'?['True','False']:(x.opts&&x.opts.length>2?x.opts:['','','','']);
+$('#optBox').innerHTML='<label>Options and correct answer</label>'+opts.map(function(o,j){
+var chk=(t==='multi'?(Array.isArray(x.ans)&&x.ans.indexOf(j)>-1):(x.ans===j));
+return '<div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem"><input type="'+(t==='multi'?'checkbox':'radio')+'" name="x_c" value="'+j+'" style="width:auto" '+(chk?'checked':'')+'>'
++'<input class="x_o" value="'+esc(o)+'" '+(t==='tf'?'readonly':'')+' placeholder="Option '+(j+1)+'"></div>';}).join('')
++(t==='tf'?'':'<button class="btn sm ghost" onclick="addOpt()">Add option</button>');
+}
+
+function addOpt(){var n=$$('.x_o').length,t=$('#x_type').value,d=document.createElement('div');
+d.style.cssText='display:flex;gap:.5rem;align-items:center;margin-bottom:.4rem';
+d.innerHTML='<input type="'+(t==='multi'?'checkbox':'radio')+'" name="x_c" value="'+n+'" style="width:auto"><input class="x_o" placeholder="Option '+(n+1)+'">';
+$('#optBox').insertBefore(d,$('#optBox').lastChild);}
+
+function qSave(qid,i){
+var q=DB.quizzes.filter(function(x){return x.id===qid})[0],t=$('#x_type').value,text=$('#x_text').value.trim();
+if(!text)return toast('Question text is required.');
+var o={id:uid('q'),type:t,text:text,marks:+$('#x_marks').value||1,exp:$('#x_exp').value};
+if(t==='short'){o.ans=$('#x_ans').value.trim();if(!o.ans)return toast('Provide at least one accepted answer.');}
+else{o.opts=$$('.x_o').map(function(e){return e.value.trim()}).filter(function(v){return v!==''});
+var sel=$$('[name=x_c]:checked').map(function(e){return +e.value});
+if(!o.opts.length)return toast('Provide options.');
+if(!sel.length)return toast('Mark the correct answer.');
+o.ans=t==='multi'?sel:sel[0];}
+if(i==null)q.questions.push(o);else{o.id=q.questions[i].id;q.questions[i]=o;}
+save();closeModal();toast('Question saved.');route();}
+
+function qDel(qid,i){if(!confirm('Delete this question?'))return;
+DB.quizzes.filter(function(x){return x.id===qid})[0].questions.splice(i,1);save();route();}
+
+ROUTES['admin/announcements']=function(){
+$('#view').innerHTML='<h1>Announcements</h1><div class="card"><h2>Post a New Announcement</h2>'
++'<div class="grid" style="grid-template-columns:2fr 1fr 1fr"><div><label>Title</label><input id="a_t"></div>'
++'<div><label>Priority</label><select id="a_p"><option>Normal</option><option>High</option></select></div>'
++'<div><label>Date</label><input type="date" id="a_d" value="'+today()+'"></div></div>'
++'<label>Message (supports **bold** and [link](url))</label><textarea id="a_b"></textarea>'
++'<button class="btn gold" style="margin-top:.7rem" onclick="addAnn()">Publish</button></div>'
++DB.announcements.map(function(a){return '<div class="card" style="margin-top:1rem"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem">'
++'<h3>'+esc(a.title)+' <span class="pill '+(a.priority==='High'?'r':'n')+'">'+a.priority+'</span></h3>'
++'<div><small>'+fdate(a.date)+'</small> <button class="btn sm dngr" onclick="delAnn(\''+a.id+'\')">Delete</button></div></div><div>'+md(a.body)+'</div>'
++'</div>';}).join('');
+};
+
+function addAnn(){if(!$('#a_t').value.trim())return toast('Title required.');
+DB.announcements.unshift({id:uid('an'),title:$('#a_t').value,body:$('#a_b').value,priority:$('#a_p').value,date:$('#a_d').value,by:USER.name});
+save();toast('Announcement published.');$('#annCount').textContent=DB.announcements.length;route();}
+
+function delAnn(id){if(!confirm('Delete this announcement?'))return;
+DB.announcements=DB.announcements.filter(function(a){return a.id!==id});save();route();}
+
+ROUTES['admin/resources']=function(){
+$('#view').innerHTML='<h1>Resources &amp; Downloads</h1><div class="card"><h2>Add Resource</h2>'
++'<div class="grid" style="grid-template-columns:2fr 1fr 1fr"><div><label>Title</label><input id="r_t"></div>'
++'<div><label>Subject</label><select id="r_s"><option value="">General</option>'+DB.subjects.map(function(s){return '<option value="'+s.id+'">'+esc(s.title)+'</option>';}).join('')+'</select></div>'
++'<div><label>Type</label><select id="r_ty"><option>PDF</option><option>Excel</option><option>Word</option><option>Video</option><option>Image</option><option>Link</option></select></div></div>'
++'<div class="grid" style="grid-template-columns:1fr 1fr"><div><label>External URL</label><input id="r_u" placeholder="https://..."></div>'
++'<div><label>Or upload file</label><input type="file" id="r_f"></div></div><label>Note</label><input id="r_n">'
++'<label style="text-transform:none;font-size:14px;margin-top:.5rem"><input type="checkbox" id="r_a" checked style="width:auto"> Allow interns to download or open</label>'
++'<button class="btn gold" style="margin-top:.7rem" onclick="addRes()">Add Resource</button>'
++'<p><small>For files above 4 MB, upload to Google Drive or OneDrive and paste the share link instead.</small></p></div>'
++'<div class="card" style="margin-top:1rem"><table><thead><tr><th>Title</th><th>Subject</th><th>Type</th><th>Source</th><th>Access</th><th></th></tr></thead><tbody>'
++DB.resources.map(function(r){var s=subject(r.subjectId);
+return '<tr><td><b>'+esc(r.title)+'</b><br><small>'+esc(r.note||'')+'</small></td><td>'+(s?esc(s.title):'General')+'</td>'
++'<td><span class="pill b">'+esc(r.type)+'</span></td><td><small>'+(r.file?esc(r.file.name):(r.url?esc(r.url).slice(0,44):'-'))+'</small></td>'
++'<td><span class="pill '+(r.allow===false?'r':'g')+'">'+(r.allow===false?'Restricted':'Allowed')+'</span></td>'
++'<td><button class="btn sm ghost" onclick="toggleRes(\''+r.id+'\')">Toggle</button> <button class="btn sm dngr" onclick="delRes(\''+r.id+'\')">Delete</button></td></tr>';}).join('')
++'</tbody></table></div>';
+};
+
+function addRes(){if(!$('#r_t').value.trim())return toast('Title required.');
+var r={id:uid('r'),title:$('#r_t').value,subjectId:$('#r_s').value,type:$('#r_ty').value,url:$('#r_u').value,note:$('#r_n').value,allow:$('#r_a').checked,date:today()};
+var f=$('#r_f').files[0],done=function(){DB.resources.unshift(r);save();toast('Resource added.');route();};
+if(f){var rd=new FileReader();rd.onload=function(){r.file={name:f.name,mime:f.type,data:rd.result};done();};rd.readAsDataURL(f);}else done();}
+
+function toggleRes(id){var r=DB.resources.filter(function(x){return x.id===id})[0];r.allow=!(r.allow!==false);save();route();}
+function delRes(id){if(!confirm('Delete this resource?'))return;DB.resources=DB.resources.filter(function(r){return r.id!==id});save();route();}
+
+ROUTES['admin/certificates']=function(){
+var on=DB.settings.certificates;
+$('#view').innerHTML='<h1>Certificates</h1><div class="card"><h2>Module Status</h2>'
++'<label style="text-transform:none;font-size:15px"><input type="checkbox" style="width:auto" '+(DB.settings.certificates?'checked':'')
++' onchange="DB.settings.certificates=this.checked;save();toast(\'Certificate module updated.\');route()"> Enable certificate generation for interns</label>'
++'<p><small>When enabled, an intern who completes 100% of a subject can generate a printable certificate showing name, course, completion date, score, firm name and a unique certificate ID.</small></p></div>'
++'<div class="card" style="margin-top:1rem"><h2>Issued Certificates ('+DB.certificates.length+')</h2>'
++'<table><thead><tr><th>Certificate ID</th><th>Intern</th><th>Course</th><th>Date</th><th>Score</th><th></th></tr></thead><tbody>'
++(DB.certificates.map(function(c){var u=DB.users.filter(function(x){return x.id===c.userId})[0],s=subject(c.subjectId);
+return '<tr><td><code>'+esc(c.id)+'</code></td><td>'+esc(u?u.name:'-')+'</td><td>'+esc(s?s.title:'-')+'</td><td>'+fdate(c.date)+'</td>'
++'<td>'+(c.score==null?'-':c.score+'%')+'</td><td><a class="btn sm ghost" href="#/cert/'+c.id+'">View</a></td></tr>';}).join('')||'<tr><td colspan="6"><small>None issued yet.</small></td></tr>')
++'</tbody></table></div><div class="card" style="margin-top:1rem"><h2>Eligible Interns</h2>'
++'<table><thead><tr><th>Intern</th><th>Subject</th><th>Progress</th><th></th></tr></thead><tbody>'
++((function(){var rows=[];DB.users.filter(function(u){return u.role==='intern'}).forEach(function(u){
+DB.subjects.forEach(function(s){var p=subjProg(u.id,s.id);if(p.pct!==100)return;
+var has=DB.certificates.some(function(c){return c.userId===u.id&&c.subjectId===s.id});
+rows.push('<tr><td>'+esc(u.name)+'</td><td>'+esc(s.title)+'</td><td><span class="pill g">100%</span></td>'
++'<td>'+(has?'<small>Issued</small>':'<button class="btn sm gold" onclick="adminIssue(\''+u.id+'\',\''+s.id+'\')">Issue</button>')+'</td></tr>');});});
+return rows.join('')||'<tr><td colspan="4"><small>No intern has completed a full subject yet.</small></td></tr>';})())
++'</tbody></table></div>';
+};
+
+function adminIssue(uid_,sid){
+var qs=DB.quizzes.filter(function(q){var t=topic(q.topicId);return t&&t.subjectId===sid});
+var av=qs.length?Math.round(qs.map(function(q){return bestPct(uid_,q.id)||0}).reduce(function(a,b){return a+b},0)/qs.length):null;
+DB.certificates.push({id:'CERT-'+sid+'-'+Date.now().toString(36).toUpperCase().slice(-6),userId:uid_,subjectId:sid,date:today(),score:av});
+save();toast('Certificate issued.');route();
+}
+
+ROUTES['admin/settings']=function(){
+var st=DB.settings,size=Math.round((ST.getItem(DBKEY)||'').length/1024);
+$('#view').innerHTML='<h1>Settings</h1><div class="grid" style="grid-template-columns:1fr 1fr">'
++'<div class="card"><h2>Branding</h2><label>Firm Name</label><input id="st_f" value="'+esc(st.firmName)+'">'
++'<label>Portal Name</label><input id="st_p" value="'+esc(st.portalName)+'">'
++'<label>Logo Initials</label><input id="st_m" value="'+esc(st.mark)+'" maxlength="3">'
++'<label>Accent Colour</label><input type="color" id="st_a" value="'+esc(st.accent)+'">'
++'<button class="btn gold" style="margin-top:.8rem" onclick="saveSettings()">Save</button></div>'
++'<div class="card"><h2>Learning Rules</h2><label>Default quiz pass mark (%)</label><input type="number" id="st_pm" value="'+st.passMark+'">'
++'<label style="text-transform:none;font-size:14px;margin-top:.7rem"><input type="checkbox" id="st_c" style="width:auto" '+(st.certificates?'checked':'')+'> Enable certificate generation</label>'
++'<button class="btn" style="margin-top:.8rem" onclick="saveSettings()">Save</button>'
++'<hr style="border:0;border-top:1px solid var(--line);margin:1rem 0"><h3>Statistics</h3>'
++'<small>Users: '+DB.users.length+' &middot; Subjects: '+DB.subjects.length+' &middot; Topics: '+DB.topics.length+' &middot; Quizzes: '+DB.quizzes.length
++' &middot; Attempts: '+DB.attempts.length+' &middot; Database size: ~'+size+' KB<br>Permanent storage: <b>'+(STORAGE_OK?'working':'BLOCKED by this browser')+'</b></small></div></div>'
++'<div class="card" style="margin-top:1rem"><h2>Backup and Restore</h2>'
++'<p><small>Your entire portal - content, interns, progress and quizzes - is stored in this browser. <b>Export a backup regularly</b> and keep it safe. To move the portal to another computer, copy the HTML file and import the backup there.</small></p>'
++'<div class="row"><button class="btn gold" onclick="expDB()">Export Backup (.json)</button>'
++'<label class="btn ghost" style="text-transform:none;font-size:14px;margin:0">Import Backup<input type="file" accept=".json" style="display:none" onchange="impDB(this)"></label>'
++'<button class="btn ghost" onclick="expContent()">Export Content Only</button>'
++'<button class="btn dngr" onclick="hardReset()">Reset to Factory Content</button></div>'
++'<div class="callout caution" style="margin-top:1rem"><b class="ct">Caution</b>Importing a backup or resetting will overwrite all current data in this browser. Export first.</div></div>'
++'<div class="card" style="margin-top:1rem"><h2>Administrator Password</h2><div class="grid" style="grid-template-columns:1fr 1fr 1fr">'
++'<div><label>Current</label><input type="password" id="ap0"></div><div><label>New</label><input type="password" id="ap1"></div>'
++'<div><label>Confirm</label><input type="password" id="ap2"></div></div>'
++'<button class="btn" style="margin-top:.7rem" onclick="adminPass()">Update Password</button></div>';
+};
+
+function saveSettings(){var st=DB.settings;
+if($('#st_f'))st.firmName=$('#st_f').value;if($('#st_p'))st.portalName=$('#st_p').value;
+if($('#st_m'))st.mark=$('#st_m').value;if($('#st_a'))st.accent=$('#st_a').value;
+if($('#st_pm'))st.passMark=+$('#st_pm').value||60;if($('#st_c'))st.certificates=$('#st_c').checked;
+save();applyBrand();toast('Settings saved.');}
+
+function adminPass(){var a=$('#ap0').value,b=$('#ap1').value,c=$('#ap2').value;
+if(String(USER.pass)!==a)return toast('Current password incorrect.');
+if(b.length<6||b!==c)return toast('New passwords must match and be at least six characters.');
+USER.pass=b;save();toast('Password updated.');}
+
+function expDB(){var a=document.createElement('a');a.href='data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(DB));
+a.download='training-portal-backup-'+today()+'.json';a.click();toast('Backup exported.');}
+
+function expContent(){var c={settings:DB.settings,subjects:DB.subjects,topics:DB.topics,quizzes:DB.quizzes,resources:DB.resources,announcements:DB.announcements};
+var a=document.createElement('a');a.href='data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(c));
+a.download='training-content-'+today()+'.json';a.click();}
+
+function impDB(inp){var f=inp.files[0];if(!f)return;var r=new FileReader();
+r.onload=function(){try{var d=JSON.parse(r.result);
+if(!confirm('Import this file and replace all current data?'))return;
+if(d.users&&d.subjects)DB=d;else{Object.keys(d).forEach(function(k){DB[k]=d[k];});}
+save();alert('Import successful. The portal will now reload.');location.reload();}
+catch(e){alert('Invalid backup file.');}};r.readAsText(f);}
+
+boot();
+</script>
+</body>
+</html>
